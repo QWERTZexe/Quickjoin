@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "quickjoin",
+    "name": "Quickjoin",
+    "description": "Quickly join any game on hypixel!",
+    "version": "${version}",
+    "mcversion": "1.8.9",
+    "url": "",
+    "updateUrl": "",
+    "authors": ["QWERTZ"],
+    "credits": "Flaticon - Icon",
+    "logoFile": "/QuickJoin.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
