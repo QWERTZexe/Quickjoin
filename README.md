@@ -1,13 +1,17 @@
 # Quickjoin
 
 ![Powered by OneConfig](https://polyfrost.org/img/cozy_vector.svg)
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
-Example mod implementing OneConfig.
+
+Quickly join any game on hypixel!
+## Installing
+- Get the most recent [RELEASE](https://github.com/QWERTZexe/Quickjoin/releases)
+- Launch forge 1.8.9 with the mod
 
 ## How to use
-
-- Copy the template either by using GitHub's "Use this template" feature or downloading the repo manually.
-- **Remove the license named "LICENSE-TEMPLATE" and choose a new one.**
-- Refactor the template (specifically, the modid, version and name in the gradle.properties and most of the class names)
-  to a different name.
-- Have fun modding! :D
+/quickjoin while on Hypixel
+## Features
+- Constant updates
+- Every game on hypixel included
+- Saves your time clicking NPCs with a colorful button GUI
+## Screenshots
+To be added
