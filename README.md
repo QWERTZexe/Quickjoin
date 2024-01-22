@@ -1,6 +1,6 @@
 # Quickjoin
 
-![Powered by OneConfig](https://polyfrost.org/img/cozy_vector.svg)
+![Powered by OneConfig](https://raw.githubusercontent.com/Polyfrost/Nexus/main/apps/website/public/media/branding/badges/badge_1.png)
 
 Quickly join any game on hypixel!
 ## Installing
