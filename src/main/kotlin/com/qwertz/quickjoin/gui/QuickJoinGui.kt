@@ -43,6 +43,8 @@ class QuickJoinGui : GuiScreen() {
         this.buttonList.add(GuiButton(3, this.width / 2 - 37, this.height / 2 + 4, 76,20,"§e$color$bold" + "ARCADE"))
         this.buttonList.add(GuiButton(4, this.width / 2 + 88, this.height / 2 - 52, 76,20,"§6$color$bold" + "SKYBLOCK"))
         this.buttonList.add(GuiButton(8, this.width / 2 - 162, this.height / 2 + 4, 76,20,"§3$color$bold" + "MURDER"))
+        this.buttonList.add(GuiButton(9, this.width / 2 + 88, this.height / 2 + 4, 76,20,"§5$color$bold" + "CLASSIC"))
+        this.buttonList.add(GuiButton(10, this.width / 2 - 37, this.height / 2 + 32, 76,20,"§4$color$bold" + "TNT"))
         this.buttonList.add(GuiButton(5, this.width / 2 - 162, this.height / 2 - 52, 76,20,"§d$color$bold" + "PIT"))
         this.buttonList.add(GuiButton(6, this.width / 2 - 162, this.height / 2 - 80, 76,20,"§7$color$bold" + "LIMBO"))
         this.buttonList.add(GuiButton(7, this.width / 2 + 88, this.height / 2 - 80, 76,20,"§f$color$bold" + "HOUSING"))
@@ -99,6 +101,13 @@ class QuickJoinGui : GuiScreen() {
 
             12 -> {
                 GuiUtils.closeScreen()
+            }
+
+            9 -> {
+                GuiUtils.displayScreen(ClassicGui())
+            }
+            10 -> {
+                GuiUtils.displayScreen(TNTGui())
             }
         }
     }
@@ -1185,6 +1194,140 @@ class MurderGui : GuiScreen() {
                 GuiUtils.closeScreen()
             }
             4 -> {
+                GuiUtils.displayScreen(QuickJoinGui())
+            }
+        }
+    }
+}
+class ClassicGui : GuiScreen() {
+
+    private val bold = CheckConfig().BoldCheck()
+    private val color = CheckConfig().ColorCheck()
+    val resourceLocation = ResourceLocation("quickjoin", "gui/Background.png")
+    private val backgroundTexture = ResourceLocation("quickjoin", "gui/Background.png")
+    override fun initGui() {
+        this.buttonList.clear()
+        this.buttonList.add(GuiButton(0, this.width / 2 - 213, this.height / 2 - 24, 76, 20, "§b$color$bold" + "VAMPIREZ"))
+        this.buttonList.add(GuiButton(1, this.width / 2 - 114, this.height / 2 - 24, 76, 20, "§b$color$bold" + "TKR"))
+        this.buttonList.add(GuiButton(2, this.width / 2 + 38, this.height / 2 - 24, 76, 20, "§b$color$bold" + "WALLS"))
+        this.buttonList.add(GuiButton(3, this.width / 2 + 137, this.height / 2 - 24, 76, 20, "§b$color$bold" + "PAINTBALL"))
+        this.buttonList.add(GuiButton(4, this.width / 2 - 162, this.height / 2 + 4, 76, 20, "§3$color$bold" + "ARENA 1v1"))
+        this.buttonList.add(GuiButton(5, this.width / 2 - 37, this.height / 2 + 4, 76, 20, "§3$color$bold" + "ARENA 2v2"))
+        this.buttonList.add(GuiButton(6, this.width / 2 + 88, this.height / 2 + 4, 76, 20, "§3$color$bold" + "ARENA 4v4"))
+        this.buttonList.add(GuiButton(7, this.width / 2 - 114, this.height / 2 + 32, 76, 20, "§6$color$bold" + "QUAKE SOLO"))
+        this.buttonList.add(GuiButton(8, this.width / 2 + 38, this.height / 2 + 32, 76, 20, "§6$color$bold" + "QUAKE TEAMS"))
+
+        this.buttonList.add(GuiButton(9, this.width / 2 - 25, this.height / 2 + 100, 50, 20, "§c$color$bold" + "BACK"))
+    }
+
+    override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
+        drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
+        super.drawScreen(mouseX, mouseY, partialTicks)
+        mc.textureManager.bindTexture(Icon)
+        drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 152, 76, 76)
+        this.drawCenteredString(this.fontRendererObj, "CLASSIC GAMES", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
+
+    }
+
+    override fun actionPerformed(button: GuiButton) {
+        when (button.id) {
+            0 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play vampirez")
+                GuiUtils.closeScreen()
+            }
+
+            1 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tkr")
+                GuiUtils.closeScreen()
+            }
+            2 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play walls")
+                GuiUtils.closeScreen()
+            }
+
+            3 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play paintball")
+                GuiUtils.closeScreen()
+            }
+            4 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play arena_1v1")
+                GuiUtils.closeScreen()
+            }
+
+            5 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play arena_2v2")
+                GuiUtils.closeScreen()
+            }
+            6 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play arena_4v4")
+                GuiUtils.closeScreen()
+            }
+
+            7 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play quake_solo")
+                GuiUtils.closeScreen()
+            }
+            8 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play quake_teams")
+                GuiUtils.closeScreen()
+            }
+            9 -> {
+                GuiUtils.displayScreen(QuickJoinGui())
+            }
+        }
+    }
+}
+class TNTGui : GuiScreen() {
+
+    private val bold = CheckConfig().BoldCheck()
+    private val color = CheckConfig().ColorCheck()
+    val resourceLocation = ResourceLocation("quickjoin", "gui/Background.png")
+    private val backgroundTexture = ResourceLocation("quickjoin", "gui/Background.png")
+    override fun initGui() {
+        this.buttonList.clear()
+        this.buttonList.add(GuiButton(0, this.width / 2 - 213, this.height / 2 - 24, 76, 20, "§b$color$bold" + "TNT RUN"))
+        this.buttonList.add(GuiButton(1, this.width / 2 - 114, this.height / 2 - 24, 76, 20, "§b$color$bold" + "TNT TAG"))
+        this.buttonList.add(GuiButton(2, this.width / 2 + 38, this.height / 2 - 24, 76, 20, "§b$color$bold" + "TNT WIZARDS"))
+        this.buttonList.add(GuiButton(3, this.width / 2 + 137, this.height / 2 - 24, 76, 20, "§b$color$bold" + "PVP RUN"))
+        this.buttonList.add(GuiButton(4, this.width / 2 - 38, this.height / 2 + 4, 76, 20, "§b$color$bold" + "BOW SPLEEF"))
+
+        this.buttonList.add(GuiButton(5, this.width / 2 - 25, this.height / 2 + 100, 50, 20, "§c$color$bold" + "BACK"))
+    }
+
+    override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
+        drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
+        super.drawScreen(mouseX, mouseY, partialTicks)
+        mc.textureManager.bindTexture(Icon)
+        drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 152, 76, 76)
+        this.drawCenteredString(this.fontRendererObj, "TNT", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
+
+    }
+
+    override fun actionPerformed(button: GuiButton) {
+        when (button.id) {
+            0 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tnt_tntrun")
+                GuiUtils.closeScreen()
+            }
+
+            1 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tnt_tntag")
+                GuiUtils.closeScreen()
+            }
+            2 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tnt_capture")
+                GuiUtils.closeScreen()
+            }
+
+            3 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tnt_pvprun")
+                GuiUtils.closeScreen()
+            }
+            4 -> {
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play tnt_bowspleef")
+                GuiUtils.closeScreen()
+            }
+            5 -> {
                 GuiUtils.displayScreen(QuickJoinGui())
             }
         }
