@@ -2,6 +2,8 @@
 
 ![Powered by OneConfig](https://raw.githubusercontent.com/Polyfrost/Nexus/main/apps/website/public/media/branding/badges/badge_1.png)
 
+<a href="https://www.freepik.com/icon/join_5836188#fromView=search&term=join&track=ais&page=1&position=50&uuid=004ae41e-32ac-4174-8fd9-1af18962063f">Icon by Freepik</a>
+
 Quickly join any game on hypixel!
 ## Installing
 - Get the most recent [RELEASE](https://github.com/QWERTZexe/Quickjoin/releases)
