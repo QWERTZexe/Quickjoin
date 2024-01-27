@@ -14,4 +14,9 @@ Quickly join any game on hypixel!
 - Every game on hypixel included
 - Saves your time clicking NPCs with a colorful button GUI
 ## Screenshots
-To be added
+For all images, have a look in [images](https://github.com/QWERTZexe/Quickjoin/tree/main/images)
+
+![QuickJoinGui](https://github.com/QWERTZexe/Quickjoin/blob/main/images/QuickJoinGui.png?raw=true)
+![Config](https://github.com/QWERTZexe/Quickjoin/blob/main/images/Config.png?raw=true)
+![BedWarsGui](https://github.com/QWERTZexe/Quickjoin/blob/main/images/BedWarsGui.png?raw=true)
+![ClassicGui](https://github.com/QWERTZexe/Quickjoin/blob/main/images/ClassicGui.png?raw=true)
