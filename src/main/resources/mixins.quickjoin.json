@@ -1,7 +1,7 @@
 {
   "compatibilityLevel": "JAVA_8",
   "minVersion": "0.7",
-  "package": "com.qwertz.quickjoin.mixin",
+  "package": "app.qwertz.quickjoin.mixin",
   "refmap": "mixins.quickjoin.refmap.json",
   "injectors": {
     "maxShiftBy": 5

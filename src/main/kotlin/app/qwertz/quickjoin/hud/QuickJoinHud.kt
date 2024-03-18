@@ -1,4 +1,4 @@
-package com.qwertz.quickjoin.hud
+package app.qwertz.quickjoin.hud
 
 import cc.polyfrost.oneconfig.hud.SingleTextHud
 

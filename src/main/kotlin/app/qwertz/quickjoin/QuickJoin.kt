@@ -1,4 +1,4 @@
-package com.qwertz.quickjoin
+package app.qwertz.quickjoin
 
 import cc.polyfrost.oneconfig.utils.commands.CommandManager
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
@@ -7,12 +7,12 @@ import net.minecraftforge.client.event.ClientChatReceivedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.client.ClientCommandHandler
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
-import com.qwertz.quickjoin.command.QuickJoinCommand
+import app.qwertz.quickjoin.command.QuickJoinCommand
 import net.minecraftforge.common.MinecraftForge
-import com.qwertz.quickjoin.gui.QuickJoinGui
+import app.qwertz.quickjoin.gui.QuickJoinGui
 import net.minecraft.client.Minecraft
-import com.qwertz.quickjoin.QuickJoin.Companion.config
-import com.qwertz.quickjoin.command.IsEnabled
+import app.qwertz.quickjoin.QuickJoin.Companion.config
+import app.qwertz.quickjoin.command.IsEnabled
 import net.minecraft.client.settings.KeyBinding
 import net.minecraftforge.fml.client.registry.ClientRegistry
 import net.minecraftforge.fml.common.SidedProxy
@@ -24,10 +24,9 @@ class QuickJoin {
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent?) {
-        config = com.qwertz.quickjoin.config.QuickJoinConfig()
+        config = app.qwertz.quickjoin.config.QuickJoinConfig()
         MinecraftForge.EVENT_BUS.register(CommandEventHandler())
         ClientCommandHandler.instance.registerCommand(QuickJoinCommand())
-
     }
     companion object {
         const val MODID: String = "@ID@"
@@ -36,7 +35,7 @@ class QuickJoin {
 
         @Mod.Instance(MODID)
         lateinit var INSTANCE: QuickJoin
-        lateinit var config: com.qwertz.quickjoin.config.QuickJoinConfig
+        lateinit var config: app.qwertz.quickjoin.config.QuickJoinConfig
     }
 }
 
@@ -46,7 +45,7 @@ class CommandEventHandler {
     @SubscribeEvent
     fun onChatReceived(event: ClientChatReceivedEvent) {
         val message = event.message.unformattedText
-        if (message.startsWith("Unknown command.")) {
+        if (message.startsWith("Unknown command.") && config.EnableAlias) {
             val pattern = Regex("""'([^']*)'""")
             val matchResult = pattern.find(message)?.value
             val alias = config.CommandAlias

@@ -1,13 +1,16 @@
-package com.qwertz.quickjoin.gui
+package app.qwertz.quickjoin.gui
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.gui.GuiScreen
 import net.minecraft.util.ResourceLocation
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
-import com.qwertz.quickjoin.QuickJoin.Companion.config
-import com.qwertz.quickjoin.config.QuickJoinConfig
+import app.qwertz.quickjoin.QuickJoin.Companion.config
+import app.qwertz.quickjoin.config.QuickJoinConfig
+import cc.polyfrost.oneconfig.libs.universal.UGraphics.GL
+import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.util.ChatComponentText
+import org.lwjgl.opengl.GL45
 
 class CheckConfig {
     fun BoldCheck(): String {
@@ -70,6 +73,7 @@ class QuickJoinGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-125, 0, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "Quickjoin", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -176,6 +180,7 @@ class BedwarsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 0, 76, 76)
 
         this.drawCenteredString(this.fontRendererObj, "BEDWARS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
@@ -239,6 +244,7 @@ class BedwarsDreamsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "BEDWARS - DREAMS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -318,6 +324,7 @@ class SkywarsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 152, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "SKYWARS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -381,6 +388,7 @@ class SkywarsLabGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 152, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "SKYWARS - LABORATORY", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -470,6 +478,7 @@ class DuelsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -550,6 +559,7 @@ class DuelsMWGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS - MEGA WALLS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -595,6 +605,7 @@ class DuelsBridgeGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS - BRIDGE", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -655,6 +666,7 @@ class DuelsSkyWarsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS - SKYWARS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -697,6 +709,7 @@ class DuelsUHCGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS - UHC", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -745,6 +758,7 @@ class DuelsOPGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "DUELS - OP", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -806,6 +820,7 @@ class ArcadeGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "ARCADE", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -905,6 +920,7 @@ class ArcadeHideAndSeekGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "ARCADE - HIDE AND SEEK", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -973,6 +989,7 @@ class ArcadeZombiesGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 76, 76, 76, 76)
         this.drawCenteredString(
             this.fontRendererObj,
@@ -1101,6 +1118,7 @@ class ArcadeZombiesGui : GuiScreen() {
             drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
             super.drawScreen(mouseX, mouseY, partialTicks)
             mc.textureManager.bindTexture(Icon)
+            GlStateManager.color(1f, 1f, 1f, 1f)
             drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 0, 76, 76, 76)
             this.drawCenteredString(
                 this.fontRendererObj,
@@ -1211,6 +1229,7 @@ class MurderGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 152, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "MURDER MYSTERY", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1268,6 +1287,7 @@ class ClassicGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 152, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "CLASSIC GAMES", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1342,6 +1362,7 @@ class TNTGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 152, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "TNT", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1394,6 +1415,7 @@ class MegaWallsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 152, 152, 76, 76)
 
         this.drawCenteredString(this.fontRendererObj, "MEGA WALLS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
@@ -1475,6 +1497,7 @@ class BBGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 0, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "BUILD BATTLE", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1562,6 +1585,7 @@ class UHCGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 76, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "UHC", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1611,6 +1635,7 @@ class BSGGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 152, 0, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "BLITZ SURVIVAL GAMES", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1689,6 +1714,7 @@ class CVCGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 130, 0, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "COPS AND CRIMS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
@@ -1738,6 +1764,7 @@ class WarlordsGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 76, 76, 76, 76)
 
         this.drawCenteredString(this.fontRendererObj, "WARLORDS", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
@@ -1785,6 +1812,7 @@ class SmashGui : GuiScreen() {
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon2)
+        GlStateManager.color(1f, 1f, 1f, 1f)
         drawTexturedModalRect(this.width/2-38, this.height/2-130, 152, 76, 76, 76)
         this.drawCenteredString(this.fontRendererObj, "SMASH HEROES", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 

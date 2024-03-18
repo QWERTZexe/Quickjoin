@@ -1,14 +1,14 @@
-package com.qwertz.quickjoin.command
+package app.qwertz.quickjoin.command
 
 import cc.polyfrost.oneconfig.libs.universal.utils.MCITextComponent
 import cc.polyfrost.oneconfig.utils.commands.annotations.Command
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
-import com.qwertz.quickjoin.QuickJoin
+import app.qwertz.quickjoin.QuickJoin
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
-import com.qwertz.quickjoin.gui.QuickJoinGui
-import com.qwertz.quickjoin.config.QuickJoinConfig
-import com.qwertz.quickjoin.QuickJoin.Companion.config
+import app.qwertz.quickjoin.gui.QuickJoinGui
+import app.qwertz.quickjoin.config.QuickJoinConfig
+import app.qwertz.quickjoin.QuickJoin.Companion.config
 import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
 val QJConfig = config
