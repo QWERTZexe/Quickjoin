@@ -14,25 +14,14 @@ import cc.polyfrost.oneconfig.libs.universal.UKeyboard
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
+import scala.tools.nsc.transform.patmat.Logic.PropositionalLogic.`False$`
 
 /**
  * The main Config entrypoint that extends the Config type and inits the config options.
  * See [this link](https://docs.polyfrost.cc/oneconfig/config/adding-options) for more config Options
  */
 class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
-    init {
-        initialize()
-        var config: app.qwertz.quickjoin.config.QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
-        registerKeyBind(QJKeyBind) {
-            if (config.EnableKeyBind) {
-                GuiUtils.displayScreen(QuickJoinGui())
 
-            }
-            else {
-                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
-            }
-        }
-    }
 
     @Switch(name = "BOLD BUTTONS",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = false
@@ -50,6 +39,17 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
     var EnableKeyBind: Boolean = true
 
     @KeyBind(name = "KEYBIND", size = OptionSize.SINGLE)
-    lateinit var QJKeyBind: OneKeyBind
+    var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_J)
+    init {
+        var config: app.qwertz.quickjoin.config.QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
+        registerKeyBind(QJKeyBind) {
+            if (config.EnableKeyBind) {
+                GuiUtils.displayScreen(QuickJoinGui())
 
+            }
+            else {
+                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
+            }
+        }
+    }
 }
