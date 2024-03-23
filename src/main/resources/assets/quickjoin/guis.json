@@ -1,0 +1,54 @@
+{
+  "guis": [
+    {
+      "name": "BedWarsGui",
+      "buttons": [
+        {
+          "id": 0,
+          "x": "center - 201",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BEDWARS",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 1,
+          "x": "center + 125",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SKYWARS",
+          "colorCode": "§2",
+          "bold": true
+        }
+      ]
+    },
+    {
+      "name": "SkywarsGui",
+      "buttons": [
+        {
+          "id": 0,
+          "x": "center - 213",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "NORMAL SOLO",
+          "colorCode": "§a",
+          "bold": true
+        },
+        {
+          "id": 1,
+          "x": "center - 114",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "NORMAL 2s",
+          "colorCode": "§a",
+          "bold": true
+        }
+      ]
+    }
+  ]
+}
