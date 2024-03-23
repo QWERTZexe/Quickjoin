@@ -5,8 +5,8 @@
       "buttons": [
         {
           "id": 0,
-          "x": "center - 201",
-          "y": "center - 24",
+          "x": "this.width - 201",
+          "y": "this.height - 24",
           "width": 76,
           "height": 20,
           "label": "BEDWARS",
@@ -15,8 +15,8 @@
         },
         {
           "id": 1,
-          "x": "center + 125",
-          "y": "center - 24",
+          "x": "this.width + 125",
+          "y": "this.height - 24",
           "width": 76,
           "height": 20,
           "label": "SKYWARS",
