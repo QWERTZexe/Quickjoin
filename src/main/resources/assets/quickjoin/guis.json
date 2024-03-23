@@ -1,4 +1,35 @@
 {
+  "maingui":
+    {
+      "name": "QuickJoinGui",
+      "buttons": [
+        {
+          "id": 0,
+          "x": "center - 201",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BEDWARS",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 1,
+          "x": "center + 125",
+          "y": "center - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SKYWARS",
+          "colorCode": "§2",
+          "bold": true
+        }
+
+      ],
+      "funcs": {
+        "0": {"type": "opengui","string": "BedWarsGui"},
+        "1": {"type": "opengui","string": "SkyWarsGui"}
+      }
+    },
   "guis": [
     {
       "name": "BedWarsGui",
