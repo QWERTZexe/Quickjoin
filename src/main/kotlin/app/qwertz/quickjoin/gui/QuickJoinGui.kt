@@ -7,11 +7,20 @@ import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.Gui
 import app.qwertz.quickjoin.QuickJoin.Companion.config
 import app.qwertz.quickjoin.config.QuickJoinConfig
+import cc.polyfrost.oneconfig.libs.common.value.qual.EnumVal
 import cc.polyfrost.oneconfig.libs.universal.UGraphics.GL
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.util.ChatComponentText
-import org.lwjgl.opengl.GL45
-
+import com.google.gson.Gson
+import scala.reflect.reify.phases.Calculate
+import javax.script.ScriptEngineManager
+import java.io.FileReader
+import java.net.URL
+import java.net.HttpURLConnection
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.util.Dictionary
+import kotlin.reflect.full.memberProperties
 class CheckConfig {
     fun BoldCheck(): String {
 
@@ -32,131 +41,114 @@ class CheckConfig {
     }
 }
 
+data class ButtonConfig(
+    val id: Int,
+    val x: String,
+    val y: String,
+    val width: Int,
+    val height: Int,
+    val label: String,
+    val colorCode: String,
+    val bold: Boolean
+)
+
+data class Config(
+    val maingui: Maingui,
+    val guis: Map<String,Guii>
+)
+
+data class Maingui(
+    val buttons: List<ButtonConfig>,
+    val funcs: Map<String, Func>,
+    val name: String
+)
+data class Guiname(
+    val name: String
+)
+data class Guii(
+    val buttons: List<ButtonConfig>,
+    val funcs: Map<String, Func>,
+    val name: String
+)
+
+data class Func(
+    val type: String,
+    val string: String,
+    val times: Int
+)
+
+
 val bold = CheckConfig().BoldCheck()
 val color = CheckConfig().ColorCheck()
 val Icon = ResourceLocation("quickjoin", "Icon.png")
 val Icon2 = ResourceLocation("quickjoin", "Icon2.png")
+val bconfig = config.guis
 
-class QuickJoinGui : GuiScreen() {
+class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
     private val bold = CheckConfig().BoldCheck()
     private val color = CheckConfig().ColorCheck()
     val resourceLocation = ResourceLocation("quickjoin", "Background.png")
+    fun evaluateExpression(expression: String): Double {
+        val modifiedexpression =
+            expression.replace("centerx", (this.width / 2).toString()).replace("centery", (this.height / 2).toString())
+        val result = modifiedexpression.split(" ")
+        if (result[1] == "-") {
+            return (result[0].toInt() - result[2].toInt()).toDouble()
+        }
+        if (result[1] == "+") {
+            return (result[0].toInt() + result[2].toInt()).toDouble()
+        }
+        return 0.toDouble()
+    }
     override fun initGui() {
         this.buttonList.clear()
-        this.buttonList.add(GuiButton(0, this.width / 2 - 201, this.height / 2 - 24, 76,20, "§2$color$bold" + "BEDWARS"))
-        this.buttonList.add(GuiButton(1, this.width / 2 + 125, this.height / 2 - 24, 76,20,"§2$color$bold" + "SKYWARS"))
-        this.buttonList.add(GuiButton(2, this.width / 2 + 26, this.height / 2 - 24, 76,20,"§2$color$bold" + "DUELS"))
-        this.buttonList.add(GuiButton(15, this.width / 2 - 201, this.height / 2 + 32, 76,20,"§2$color$bold" + "UHC"))
-        this.buttonList.add(GuiButton(16, this.width / 2 -102, this.height / 2 + 32, 76,20,"§2$color$bold" + "BLITZ SG"))
-        this.buttonList.add(GuiButton(18, this.width / 2 -102, this.height / 2 + 60, 76,20,"§2$color$bold" + "WARLORDS"))
-        this.buttonList.add(GuiButton(17, this.width / 2 +26, this.height / 2 + 32, 76,20,"§2$color$bold" + "CVC"))
-        this.buttonList.add(GuiButton(19, this.width / 2 +26, this.height / 2 + 60, 76,20,"§2$color$bold" + "SMASH"))
-        this.buttonList.add(GuiButton(4, this.width / 2 + 88, this.height / 2 - 52, 76,20,"§6$color$bold" + "SKYBLOCK"))
-        this.buttonList.add(GuiButton(8, this.width / 2 - 201, this.height / 2 + 4, 76,20,"§2$color$bold" + "MURDER"))
-        this.buttonList.add(GuiButton(9, this.width / 2 + 125, this.height / 2 + 4, 76,20,"§2$color$bold" + "CLASSIC"))
-        this.buttonList.add(GuiButton(10, this.width / 2 -102, this.height / 2 + 4, 76,20,"§2$color$bold" + "TNT"))
-        this.buttonList.add(GuiButton(13, this.width / 2 + 125, this.height / 2 + 32, 76,20,"§2$color$bold" + "MEGA WALLS"))
-        this.buttonList.add(GuiButton(14, this.width / 2 +26, this.height / 2 + 4, 76,20,"§2$color$bold" + "BUILDBATTLE"))
-        this.buttonList.add(GuiButton(3, this.width / 2 - 102, this.height / 2 - 24, 76,20, "§2$color$bold" + "ARCADE"))
+        bconfig.guis[guiname]?.buttons?.forEach { buttonConfig ->
+            val label = "${buttonConfig.colorCode}${if (buttonConfig.bold) "§l" else ""}${buttonConfig.label}"
+            val resultx = evaluateExpression(buttonConfig.x)
+            val resulty = evaluateExpression(buttonConfig.y)
+            this.buttonList.add(GuiButton(buttonConfig.id, resultx.toInt(), resulty.toInt(), buttonConfig.width, buttonConfig.height, label))
 
-        this.buttonList.add(GuiButton(5, this.width / 2 - 162, this.height / 2 - 52, 76,20,"§b$color$bold" + "PIT"))
-        this.buttonList.add(GuiButton(6, this.width / 2 - 162, this.height / 2 - 80, 76,20,"§b$color$bold" + "LIMBO"))
-        this.buttonList.add(GuiButton(20, this.width / 2 - 162, this.height / 2 - 108, 76,20,"§b$color$bold" + "MAIN LOBBY"))
-        this.buttonList.add(GuiButton(7, this.width / 2 + 88, this.height / 2 - 80, 76,20,"§b$color$bold" + "HOUSING"))
-        this.buttonList.add(GuiButton(11, this.width / 2 + 88, this.height / 2 - 108, 76,20,"§b$color$bold" + "WOOL WARS"))
 
-        this.buttonList.add(GuiButton(12, this.width / 2 - 25, this.height / 2 + 100, 50,20,"§c$color$bold" + "EXIT"))
+        }
+
+
     }
-    // I HATE YOU RESOURCELOCATION!!! >:( //
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
-
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(Icon)
         GlStateManager.color(1f, 1f, 1f, 1f)
-        drawTexturedModalRect(this.width/2-38, this.height/2-125, 0, 0, 76, 76)
-        this.drawCenteredString(this.fontRendererObj, "Quickjoin", this.width / 2, this.height / 2 - 50, 0xFFFFFF)
+        drawTexturedModalRect(this.width/2-38, this.height/2-130, 0, 0, 76, 76)
+        this.drawCenteredString(this.fontRendererObj, bconfig.guis[guiname]?.name, this.width / 2, this.height / 2 - 50, 0xFFFFFF)
 
 
     }
-
     override fun actionPerformed(button: GuiButton) {
-        when (button.id) {
-            0 -> {
-                GuiUtils.displayScreen(BedwarsGui())
-            }
-            1 -> {
-                GuiUtils.displayScreen(SkywarsGui())
-            }
-            2 -> {
-                GuiUtils.displayScreen(DuelsGui())
-            }
-            3 -> {
-            GuiUtils.displayScreen(ArcadeGui())
-        }
-            8 -> {
-                GuiUtils.displayScreen(MurderGui())
-            }
-            4 -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play skyblock")
-                GuiUtils.closeScreen()
-            }
-            5 -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play pit")
-                GuiUtils.closeScreen()
-            }
-            6 -> {
-            GuiUtils.closeScreen()
-                repeat(20) {
-                    Minecraft.getMinecraft().thePlayer.sendChatMessage("/")
+        var buttonpressedid = button.id.toString()
+        bconfig.guis[guiname]?.funcs?.forEach { funcConfig ->
+            if (funcConfig.key == buttonpressedid) {
+                if (funcConfig.value.type == "opengui") {
+                    GuiUtils.displayScreen(QuickJoinGui(funcConfig.value.string))
+                }
+                if (funcConfig.value.type == "command") {
+                    Minecraft.getMinecraft().thePlayer.sendChatMessage(funcConfig.value.string)
+                    GuiUtils.closeScreen()
+                }
+                if (funcConfig.value.type == "chat") {
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText(funcConfig.value.string))
+                    GuiUtils.closeScreen()
+                }
+                if (funcConfig.value.type == "close") {
+                    GuiUtils.closeScreen()
+                }
+                if (funcConfig.value.type == "repeat") {
+                    repeat(funcConfig.value.times) {
+                        GuiUtils.closeScreen()
+                        Minecraft.getMinecraft().thePlayer.sendChatMessage(funcConfig.value.string)
+                    }
                 }
 
-        }
-            7 -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage("/home")
-                GuiUtils.closeScreen()
             }
-            11 -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage("/play wool_wool_wars_two_four")
-                GuiUtils.closeScreen()
-            }
-
-            12 -> {
-                GuiUtils.closeScreen()
-            }
-
-            9 -> {
-                GuiUtils.displayScreen(ClassicGui())
-            }
-            10 -> {
-                GuiUtils.displayScreen(TNTGui())
-            }
-            13 -> {
-                GuiUtils.displayScreen(MegaWallsGui())
-            }
-            14 -> {
-                GuiUtils.displayScreen(BBGui())
-            }
-            15 -> {
-                GuiUtils.displayScreen(UHCGui())
-            }
-            16 -> {
-                GuiUtils.displayScreen(BSGGui())
-            }
-            17 -> {
-                GuiUtils.displayScreen(CVCGui())
-            }
-            18 -> {
-                GuiUtils.displayScreen(WarlordsGui())
-            }
-            19 -> {
-                GuiUtils.displayScreen(SmashGui())
-            }
-            20 -> {
-                Minecraft.getMinecraft().thePlayer.sendChatMessage("/lobby main")
-                GuiUtils.closeScreen()
-            }
-
         }
     }
 }
