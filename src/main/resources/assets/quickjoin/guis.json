@@ -1,42 +1,7 @@
 {
-  "maingui": {
-    "name": "QuickJoinGui",
-    "buttons": [
-      {
-        "id": 0,
-        "x": "centerx - 201",
-        "y": "centery - 24",
-        "width": 76,
-        "height": 20,
-        "label": "BEDWARS",
-        "colorCode": "§2",
-        "bold": true
-      },
-      {
-        "id": 1,
-        "x": "centerx + 125",
-        "y": "centery - 24",
-        "width": 76,
-        "height": 20,
-        "label": "SKYWARS",
-        "colorCode": "§2",
-        "bold": true
-      }
-    ],
-    "funcs": {
-      "0": {
-        "type": "opengui",
-        "string": "BedWarsGui"
-      },
-      "1": {
-        "type": "opengui",
-        "string": "SkyWarsGui"
-      }
-    }
-  },
   "guis": {
-    "BedWarsGui": {
-      "name": "Bedwars",
+    "QuickJoinGui": {
+      "name": "Quickjoin",
       "buttons": [
         {
           "id": 0,
@@ -57,33 +22,334 @@
           "label": "SKYWARS",
           "colorCode": "§2",
           "bold": true
-        }
-      ]
-    },
-    "SkyWarsGui": {
-      "name": "Skywars",
-      "buttons": [
+        },
         {
-          "id": 0,
-          "x": "centerx - 213",
+          "id": 2,
+          "x": "centerx + 26",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
-          "label": "NORMAL SOLO",
-          "colorCode": "§a",
+          "label": "DUELS",
+          "colorCode": "§2",
           "bold": true
         },
         {
-          "id": 1,
-          "x": "centerx - 114",
+          "id": 15,
+          "x": "centerx - 201",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "UHC",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 16,
+          "x": "centerx - 102",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "BLITZ SG",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 18,
+          "x": "centerx - 102",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "WARLORDS",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 17,
+          "x": "centerx + 26",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "CVC",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 19,
+          "x": "centerx + 26",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "SMASH",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 4,
+          "x": "centerx + 88",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "SKYBLOCK",
+          "colorCode": "§6",
+          "bold": true
+        },
+        {
+          "id": 8,
+          "x": "centerx - 201",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "MURDER",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 9,
+          "x": "centerx + 125",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "CLASSIC",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 10,
+          "x": "centerx - 102",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "TNT",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 13,
+          "x": "centerx + 125",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "MEGA WALLS",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 14,
+          "x": "centerx + 26",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "BUILDBATTLE",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 3,
+          "x": "centerx - 102",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
-          "label": "NORMAL 2s",
-          "colorCode": "§a",
+          "label": "ARCADE",
+          "colorCode": "§2",
+          "bold": true
+        },
+        {
+          "id": 5,
+          "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "PIT",
+          "colorCode": "§b",
+          "bold": true
+        },
+        {
+          "id": 6,
+          "x": "centerx - 162",
+          "y": "centery - 80",
+          "width": 76,
+          "height": 20,
+          "label": "LIMBO",
+          "colorCode": "§b",
+          "bold": true
+        },
+        {
+          "id": 20,
+          "x": "centerx - 162",
+          "y": "centery - 108",
+          "width": 76,
+          "height": 20,
+          "label": "MAIN LOBBY",
+          "colorCode": "§b",
+          "bold": true
+        },
+        {
+          "id": 7,
+          "x": "centerx + 88",
+          "y": "centery - 80",
+          "width": 76,
+          "height": 20,
+          "label": "HOUSING",
+          "colorCode": "§b",
+          "bold": true
+        },
+        {
+          "id": 11,
+          "x": "centerx + 88",
+          "y": "centery - 108",
+          "width": 76,
+          "height": 20,
+          "label": "WOOL WARS",
+          "colorCode": "§b",
+          "bold": true
+        },
+        {
+          "id": 12,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "EXIT",
+          "colorCode": "§c",
           "bold": true
         }
-      ]
+      ],
+      "funcs": {
+        "0": {
+          "type": "opengui",
+          "string": "BedWarsGui"
+        },
+        "1": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        },
+        "3": {
+          "type": "opengui",
+          "string": "ArcadeGui"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play skyblock"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play pit"
+        },
+        "6": {
+          "type": "repeat",
+          "string": "/",
+          "times": 20
+        },
+        "7": {
+          "type": "command",
+          "string": "/home"
+        },
+        "8": {
+          "type": "opengui",
+          "string": "MurderGui"
+        },
+        "9": {
+          "type": "opengui",
+          "string": "ClassicGui"
+        },
+        "10": {
+          "type": "opengui",
+          "string": "TNTGui"
+        },
+        "11": {
+          "type": "command",
+          "string": "/play wool_wool_wars_two_four"
+        },
+        "12": {
+          "type": "close"
+        },
+        "13": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "14": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "15": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "16": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "17": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "18": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "19": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        },
+        "20": {
+          "type": "opengui",
+          "string": "SkyWarsGui"
+        }
+      }
+    },
+    "BedWarsGui": {
+        "name": "Bedwars",
+        "buttons": [
+          {
+            "id": 0,
+            "x": "centerx - 201",
+            "y": "centery - 24",
+            "width": 76,
+            "height": 20,
+            "label": "BEDWARS",
+            "colorCode": "§2",
+            "bold": true
+          },
+          {
+            "id": 1,
+            "x": "centerx + 125",
+            "y": "centery - 24",
+            "width": 76,
+            "height": 20,
+            "label": "SKYWARS",
+            "colorCode": "§2",
+            "bold": true
+          }
+        ]
+      },
+      "SkyWarsGui": {
+        "name": "Skywars",
+        "buttons": [
+          {
+            "id": 0,
+            "x": "centerx - 213",
+            "y": "centery - 24",
+            "width": 76,
+            "height": 20,
+            "label": "NORMAL SOLO",
+            "colorCode": "§a",
+            "bold": true
+          },
+          {
+            "id": 1,
+            "x": "centerx - 114",
+            "y": "centery - 24",
+            "width": 76,
+            "height": 20,
+            "label": "NORMAL 2s",
+            "colorCode": "§a",
+            "bold": true
+          }
+        ]
+      }
     }
   }
-}
