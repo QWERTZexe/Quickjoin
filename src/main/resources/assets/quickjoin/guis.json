@@ -1,7 +1,42 @@
 {
-  "maingui":
-    {
-      "name": "QuickJoinGui",
+  "maingui": {
+    "name": "QuickJoinGui",
+    "buttons": [
+      {
+        "id": 0,
+        "x": "centerx - 201",
+        "y": "centery - 24",
+        "width": 76,
+        "height": 20,
+        "label": "BEDWARS",
+        "colorCode": "§2",
+        "bold": true
+      },
+      {
+        "id": 1,
+        "x": "centerx + 125",
+        "y": "centery - 24",
+        "width": 76,
+        "height": 20,
+        "label": "SKYWARS",
+        "colorCode": "§2",
+        "bold": true
+      }
+    ],
+    "funcs": {
+      "0": {
+        "type": "opengui",
+        "string": "BedWarsGui"
+      },
+      "1": {
+        "type": "opengui",
+        "string": "SkyWarsGui"
+      }
+    }
+  },
+  "guis": {
+    "BedWarsGui": {
+      "name": "Bedwars",
       "buttons": [
         {
           "id": 0,
@@ -23,46 +58,15 @@
           "colorCode": "§2",
           "bold": true
         }
-
-      ],
-      "funcs": {
-        "0": {"type": "opengui","string": "BedWarsGui"},
-        "1": {"type": "opengui","string": "SkyWarsGui"}
-      }
-    },
-  "guis": [
-    {
-      "name": "BedWarsGui",
-      "buttons": [
-        {
-          "id": 0,
-          "x": "center - 201",
-          "y": "center - 24",
-          "width": 76,
-          "height": 20,
-          "label": "BEDWARS",
-          "colorCode": "§2",
-          "bold": true
-        },
-        {
-          "id": 1,
-          "x": "center + 125",
-          "y": "center - 24",
-          "width": 76,
-          "height": 20,
-          "label": "SKYWARS",
-          "colorCode": "§2",
-          "bold": true
-        }
       ]
     },
-    {
-      "name": "SkywarsGui",
+    "SkyWarsGui": {
+      "name": "Skywars",
       "buttons": [
         {
           "id": 0,
-          "x": "center - 213",
-          "y": "center - 24",
+          "x": "centerx - 213",
+          "y": "centery - 24",
           "width": 76,
           "height": 20,
           "label": "NORMAL SOLO",
@@ -71,8 +75,8 @@
         },
         {
           "id": 1,
-          "x": "center - 114",
-          "y": "center - 24",
+          "x": "centerx - 114",
+          "y": "centery - 24",
           "width": 76,
           "height": 20,
           "label": "NORMAL 2s",
@@ -81,5 +85,5 @@
         }
       ]
     }
-  ]
+  }
 }
