@@ -11,35 +11,17 @@ import cc.polyfrost.oneconfig.config.data.Mod
 import cc.polyfrost.oneconfig.config.data.ModType
 import cc.polyfrost.oneconfig.config.data.OptionSize
 import cc.polyfrost.oneconfig.libs.universal.UKeyboard
+import cc.polyfrost.oneconfig.utils.NetworkUtils
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
 import com.google.gson.Gson
 import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
-import scala.tools.nsc.transform.patmat.Logic.PropositionalLogic.`False$`
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
 
-/**
- * The main Config entrypoint that extends the Config type and inits the config options.
- * See [this link](https://docs.polyfrost.cc/oneconfig/config/adding-options) for more config Options
- */
+
+var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), app.qwertz.quickjoin.gui.Config::class.java)
 class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
-    fun loadConfig(): app.qwertz.quickjoin.gui.Config {
-        val url = URL("https://github.com/QWERTZexe/Quickjoin/raw/main/src/main/resources/assets/quickjoin/guis.json")
-        val connection = url.openConnection() as HttpURLConnection
-        connection.requestMethod = "GET"
-        connection.connect()
 
-        val inputStream = connection.inputStream
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        val json = reader.readText()
-
-        return Gson().fromJson(json, app.qwertz.quickjoin.gui.Config::class.java)
-    }
-    public var  guis = loadConfig()
     @Switch(name = "BOLD BUTTONS",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = false
 
@@ -58,9 +40,20 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
     @KeyBind(name = "KEYBIND", size = OptionSize.SINGLE)
     var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_J)
 
+    fun loadConfig(): app.qwertz.quickjoin.gui.Config {
+        try {
+            val json = NetworkUtils.getJsonElement("https://raw.githubusercontent.com/QWERTZexe/Quickjoin/main/src/main/resources/assets/quickjoin/guis.json").asJsonObject
+            return Gson().fromJson(json, app.qwertz.quickjoin.gui.Config::class.java)
+        }
+        catch (e:Exception) {
+            val json = getJsonFallback()
+            return Gson().fromJson(json, app.qwertz.quickjoin.gui.Config::class.java)
+        }
 
+    }
     init {
-        var config: app.qwertz.quickjoin.config.QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
+        guis = loadConfig()
+        var config: QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
         registerKeyBind(QJKeyBind) {
             if (config.EnableKeyBind) {
                 GuiUtils.displayScreen(QuickJoinGui())
