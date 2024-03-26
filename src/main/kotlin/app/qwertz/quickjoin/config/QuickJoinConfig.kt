@@ -1,6 +1,6 @@
 package app.qwertz.quickjoin.config
-
 import app.qwertz.quickjoin.QuickJoin
+import app.qwertz.quickjoin.fallback.getJsonFallback
 import app.qwertz.quickjoin.gui.QuickJoinGui
 import cc.polyfrost.oneconfig.config.Config
 import cc.polyfrost.oneconfig.config.annotations.KeyBind
@@ -17,29 +17,26 @@ import com.google.gson.Gson
 import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
 
-
+/**
+ * The main Config entrypoint that extends the Config type and inits the config options.
+ * See [this link](https://docs.polyfrost.cc/oneconfig/config/adding-options) for more config Options
+ */
 var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), app.qwertz.quickjoin.gui.Config::class.java)
-class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
+class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
     @Switch(name = "BOLD BUTTONS",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = false
-
     @Switch(name = "COLORED BUTTONS", size = OptionSize.SINGLE)
     var ColorSwitch: Boolean = true
-
     @Switch(name = "ENABLE COMMAND ALIAS", size = OptionSize.SINGLE)
     var EnableAlias: Boolean = true
-
     @Text(name = "COMMAND ALIAS",size = OptionSize.SINGLE)
     var CommandAlias: String = "qj"
-
     @Switch(name = "ENABLE KEYBIND", size = OptionSize.SINGLE)
     var EnableKeyBind: Boolean = true
-
     @KeyBind(name = "KEYBIND", size = OptionSize.SINGLE)
-    var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_J)
-
+    var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_X)
     fun loadConfig(): app.qwertz.quickjoin.gui.Config {
         try {
             val json = NetworkUtils.getJsonElement("https://raw.githubusercontent.com/QWERTZexe/Quickjoin/main/src/main/resources/assets/quickjoin/guis.json").asJsonObject
@@ -52,16 +49,20 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
 
     }
     init {
+
         guis = loadConfig()
         var config: QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
         registerKeyBind(QJKeyBind) {
             if (config.EnableKeyBind) {
-                GuiUtils.displayScreen(QuickJoinGui())
-
-            }
-            else {
-                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
+                if (!config.enabled) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
+                    }
+                else {
+                    GuiUtils.displayScreen(QuickJoinGui())
+                }
             }
         }
+        initialize()
+
     }
 }

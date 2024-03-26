@@ -65,7 +65,6 @@ data class Func(
     val times: Int
 )
 
-
 class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
     val bconfig = guis
     val bold = CheckConfig().boldCheck()
