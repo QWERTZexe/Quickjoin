@@ -1,23 +1,19 @@
 package app.qwertz.quickjoin
 
-import cc.polyfrost.oneconfig.utils.commands.CommandManager
-import cc.polyfrost.oneconfig.utils.gui.GuiUtils
-import net.minecraftforge.fml.common.Mod
-import net.minecraftforge.client.event.ClientChatReceivedEvent
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.client.ClientCommandHandler
-import net.minecraftforge.fml.common.event.FMLInitializationEvent
-import app.qwertz.quickjoin.command.QuickJoinCommand
-import net.minecraftforge.common.MinecraftForge
-import app.qwertz.quickjoin.gui.QuickJoinGui
-import net.minecraft.client.Minecraft
 import app.qwertz.quickjoin.QuickJoin.Companion.config
 import app.qwertz.quickjoin.command.IsEnabled
-import net.minecraft.client.settings.KeyBinding
-import net.minecraftforge.fml.client.registry.ClientRegistry
-import net.minecraftforge.fml.common.SidedProxy
-import org.lwjgl.input.Keyboard
+import app.qwertz.quickjoin.command.QuickJoinCommand
+import app.qwertz.quickjoin.gui.QuickJoinGui
+import cc.polyfrost.oneconfig.utils.gui.GuiUtils
+import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
+import net.minecraftforge.client.ClientCommandHandler
+import net.minecraftforge.client.event.ClientChatReceivedEvent
+import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.event.FMLInitializationEvent
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
+
 @Mod(modid = QuickJoin.MODID, name = QuickJoin.NAME, version = QuickJoin.VERSION)
 class QuickJoin {
     // Register the config and commands.
@@ -50,7 +46,7 @@ class CommandEventHandler {
             val matchResult = pattern.find(message)?.value
             val alias = config.CommandAlias
             if (matchResult == "'$alias'") {
-                if (IsEnabled().EnabledCheck()) {
+                if (IsEnabled().enabledCheck()) {
                     GuiUtils.displayScreen(QuickJoinGui())
                 } else {
                     Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))

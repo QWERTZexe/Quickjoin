@@ -1,26 +1,21 @@
 package app.qwertz.quickjoin.command
 
-import cc.polyfrost.oneconfig.libs.universal.utils.MCITextComponent
+import app.qwertz.quickjoin.QuickJoin
+import app.qwertz.quickjoin.QuickJoin.Companion.config
+import app.qwertz.quickjoin.gui.QuickJoinGui
 import cc.polyfrost.oneconfig.utils.commands.annotations.Command
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
-import app.qwertz.quickjoin.QuickJoin
+import net.minecraft.client.Minecraft
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
-import app.qwertz.quickjoin.gui.QuickJoinGui
-import app.qwertz.quickjoin.config.QuickJoinConfig
-import app.qwertz.quickjoin.QuickJoin.Companion.config
-import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
+
 val QJConfig = config
 
 // Check the value of the enable/disable option for the current mod
 class IsEnabled {
-    fun EnabledCheck(): Boolean {
-        if (QJConfig.enabled) {
-            return true
-        } else {
-            return false
-        }
+    fun enabledCheck(): Boolean {
+        return QJConfig.enabled
     }
 }
 @Command(value = QuickJoin.MODID, description = "Access the " + QuickJoin.NAME + " GUI")
@@ -31,7 +26,7 @@ class QuickJoinCommand : CommandBase() {
 
     override fun processCommand(sender: ICommandSender, args: Array<String>) {
         // Ensure that this command is only executed on the client side
-        if (IsEnabled().EnabledCheck()) {
+        if (IsEnabled().enabledCheck()) {
             GuiUtils.displayScreen(QuickJoinGui())
         } else {
             Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
