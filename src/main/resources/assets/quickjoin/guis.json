@@ -2,6 +2,11 @@
   "guis": {
     "QuickJoinGui": {
       "name": "Quickjoin",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 0
+      },
       "buttons": [
         {
           "id": 0,
@@ -10,8 +15,7 @@
           "width": 76,
           "height": 20,
           "label": "BEDWARS",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 1,
@@ -20,8 +24,7 @@
           "width": 76,
           "height": 20,
           "label": "SKYWARS",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 2,
@@ -30,8 +33,7 @@
           "width": 76,
           "height": 20,
           "label": "DUELS",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 15,
@@ -40,8 +42,7 @@
           "width": 76,
           "height": 20,
           "label": "UHC",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 16,
@@ -50,8 +51,7 @@
           "width": 76,
           "height": 20,
           "label": "BLITZ SG",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 18,
@@ -60,8 +60,7 @@
           "width": 76,
           "height": 20,
           "label": "WARLORDS",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 17,
@@ -70,8 +69,7 @@
           "width": 76,
           "height": 20,
           "label": "CVC",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 19,
@@ -80,8 +78,7 @@
           "width": 76,
           "height": 20,
           "label": "SMASH",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 4,
@@ -90,8 +87,7 @@
           "width": 76,
           "height": 20,
           "label": "SKYBLOCK",
-          "colorCode": "§6",
-          "bold": true
+          "colorCode": "§6"
         },
         {
           "id": 8,
@@ -100,8 +96,7 @@
           "width": 76,
           "height": 20,
           "label": "MURDER",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 9,
@@ -110,8 +105,7 @@
           "width": 76,
           "height": 20,
           "label": "CLASSIC",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 10,
@@ -120,8 +114,7 @@
           "width": 76,
           "height": 20,
           "label": "TNT",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 13,
@@ -130,8 +123,7 @@
           "width": 76,
           "height": 20,
           "label": "MEGA WALLS",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 14,
@@ -140,8 +132,7 @@
           "width": 76,
           "height": 20,
           "label": "BUILDBATTLE",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 3,
@@ -150,8 +141,7 @@
           "width": 76,
           "height": 20,
           "label": "ARCADE",
-          "colorCode": "§2",
-          "bold": true
+          "colorCode": "§2"
         },
         {
           "id": 5,
@@ -160,8 +150,7 @@
           "width": 76,
           "height": 20,
           "label": "PIT",
-          "colorCode": "§b",
-          "bold": true
+          "colorCode": "§b"
         },
         {
           "id": 6,
@@ -170,8 +159,7 @@
           "width": 76,
           "height": 20,
           "label": "LIMBO",
-          "colorCode": "§b",
-          "bold": true
+          "colorCode": "§b"
         },
         {
           "id": 20,
@@ -180,8 +168,7 @@
           "width": 76,
           "height": 20,
           "label": "MAIN LOBBY",
-          "colorCode": "§b",
-          "bold": true
+          "colorCode": "§b"
         },
         {
           "id": 7,
@@ -190,8 +177,7 @@
           "width": 76,
           "height": 20,
           "label": "HOUSING",
-          "colorCode": "§b",
-          "bold": true
+          "colorCode": "§b"
         },
         {
           "id": 11,
@@ -200,8 +186,7 @@
           "width": 76,
           "height": 20,
           "label": "WOOL WARS",
-          "colorCode": "§b",
-          "bold": true
+          "colorCode": "§b"
         },
         {
           "id": 12,
@@ -210,8 +195,7 @@
           "width": 50,
           "height": 20,
           "label": "EXIT",
-          "colorCode": "§c",
-          "bold": true
+          "colorCode": "§c"
         }
       ],
       "funcs": {
@@ -269,87 +253,2302 @@
         },
         "13": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "MegaWallsGui"
         },
         "14": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "BBGui"
         },
         "15": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "UHCGui"
         },
         "16": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "BSGGui"
         },
         "17": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "CVCGui"
         },
         "18": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "WarlordsGui"
         },
         "19": {
           "type": "opengui",
-          "string": "SkyWarsGui"
+          "string": "SmashGui"
         },
         "20": {
+          "type": "command",
+          "string": "/lobby main"
+        }
+      }
+    },
+    "BedWarsGui": {
+      "name": "BEDWARS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 162",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 37",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "DOUBLES",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 88",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "3v3v3v3",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx - 162",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "4v4v4v4",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 37",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "4v4",
+          "colorCode": "§b"
+        },
+        {
+          "id": 5,
+          "x": "centerx + 88",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "DREAMS",
+          "colorCode": "§2"
+        },
+        {
+          "id": 6,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play bedwars_eight_one"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play bedwars_eight_two"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play bedwars_four_three"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play bedwars_four_four"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play bedwars_two_four"
+        },
+        "5": {
+          "type": "opengui",
+          "string": "BedWarsDreamsGui"
+        },
+        "6": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "BedWarsDreamsGui": {
+      "name": "BEDWARS - DREAMS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "RUSH 2s",
+          "colorCode": "§2"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "RUSH 4s",
+          "colorCode": "§2"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "ULTIMATE 2s",
+          "colorCode": "§4"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "ULTIMATE 4s",
+          "colorCode": "§4"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 213",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "LUCKY 2s",
+          "colorCode": "§d"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "LUCKY 4s",
+          "colorCode": "§d"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "VOIDLESS 2s",
+          "colorCode": "§a"
+        },
+        {
+          "id": 7,
+          "x": "centerx + 137",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "VOIDLESS 4s",
+          "colorCode": "§a"
+        },
+        {
+          "id": 8,
+          "x": "centerx - 213",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "ARMED 2s",
+          "colorCode": "§e"
+        },
+        {
+          "id": 9,
+          "x": "centerx - 114",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "ARMED 4s",
+          "colorCode": "§e"
+        },
+        {
+          "id": 10,
+          "x": "centerx + 87",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "CASTLE",
+          "colorCode": "§b"
+        },
+        {
+          "id": 11,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play bedwars_eight_two_rush"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play bedwars_four_four_rush"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play bedwars_eight_two_ultimate"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play bedwars_four_four_ultimate"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play bedwars_eight_two_lucky"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play bedwars_four_four_lucky"
+        },
+        "6": {
+          "type": "command",
+          "string": "/play bedwars_eight_two_voidless"
+        },
+        "7": {
+          "type": "command",
+          "string": "/play bedwars_four_four_voidless"
+        },
+        "8": {
+          "type": "command",
+          "string": "/play bedwars_eight_two_armed"
+        },
+        "9": {
+          "type": "command",
+          "string": "/play bedwars_four_four_armed"
+        },
+        "10": {
+          "type": "command",
+          "string": "/play bedwars_castle"
+        },
+        "11": {
+          "type": "opengui",
+          "string": "BedWarsGui"
+        }
+      }
+    },
+    "SkyWarsGui": {
+      "name": "SKYWARS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 152,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "NORMAL SOLO",
+          "colorCode": "§a"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "NORMAL 2s",
+          "colorCode": "§a"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "INSANE SOLO",
+          "colorCode": "§4"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "INSANE 2s",
+          "colorCode": "§4"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 213",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "MEGA SOLO",
+          "colorCode": "§6"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "MEGA 2s",
+          "colorCode": "§6"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 87",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "LABORATORY",
+          "colorCode": "§2"
+        },
+        {
+          "id": 7,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play solo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play teams_normal"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play solo_insane"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play teams_insane"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play mega_normal"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play mega_doubles"
+        },
+        "6": {
+          "type": "opengui",
+          "string": "SkyWarsLabGui"
+        },
+        "7": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "SkyWarsLabGui": {
+      "name": "SKYWARS - LABORATORY",
+      "icon": {
+        "sheet": 1,
+        "textureX": 152,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "LUCKY SOLO",
+          "colorCode": "§d"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "LUCKY 2s",
+          "colorCode": "§d"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TNT SOLO",
+          "colorCode": "§4"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TNT2s",
+          "colorCode": "§4"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 213",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "RUSH SOLO",
+          "colorCode": "§e"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "RUSH2s",
+          "colorCode": "§e"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "SLIME SOLO",
+          "colorCode": "§a"
+        },
+        {
+          "id": 7,
+          "x": "centerx + 137",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "SLIME 2s",
+          "colorCode": "§a"
+        },
+        {
+          "id": 8,
+          "x": "centerx - 50",
+          "y": "centery + 32",
+          "width": 100,
+          "height": 20,
+          "label": "HUNTER VS BEASTS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 9,
+          "x": "centerx-25",
+          "y": "centery+100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play solo_insane_lucky"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play teams_insane_lucky"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play solo_insane_tnt_madness"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play teams_insane_tnt_madness"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play solo_insane_rush"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play teams_insane_rush"
+        },
+        "6": {
+          "type": "command",
+          "string": "/play solo_insane_slime"
+        },
+        "7": {
+          "type": "command",
+          "string": "/play teams_insane_slime"
+        },
+        "8": {
+          "type": "command",
+          "string": "/play solo_insane_hunters_vs_beasts"
+        },
+        "9": {
           "type": "opengui",
           "string": "SkyWarsGui"
         }
       }
     },
-    "BedWarsGui": {
-        "name": "Bedwars",
-        "buttons": [
-          {
-            "id": 0,
-            "x": "centerx - 201",
-            "y": "centery - 24",
-            "width": 76,
-            "height": 20,
-            "label": "BEDWARS",
-            "colorCode": "§2",
-            "bold": true
-          },
-          {
-            "id": 1,
-            "x": "centerx + 125",
-            "y": "centery - 24",
-            "width": 76,
-            "height": 20,
-            "label": "SKYWARS",
-            "colorCode": "§2",
-            "bold": true
-          }
-        ]
+    "DuelsGui": {
+      "name": "DUELS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
       },
-      "SkyWarsGui": {
-        "name": "Skywars",
-        "buttons": [
-          {
-            "id": 0,
-            "x": "centerx - 213",
-            "y": "centery - 24",
-            "width": 76,
-            "height": 20,
-            "label": "NORMAL SOLO",
-            "colorCode": "§a",
-            "bold": true
-          },
-          {
-            "id": 1,
-            "x": "centerx - 114",
-            "y": "centery - 24",
-            "width": 76,
-            "height": 20,
-            "label": "NORMAL 2s",
-            "colorCode": "§a",
-            "bold": true
-          }
-        ]
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CLASSIC",
+          "colorCode": "§a"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SUMO",
+          "colorCode": "§a"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "MEGA WALLS",
+          "colorCode": "§4"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BRIDGE",
+          "colorCode": "§4"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 213",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "PARKOUR",
+          "colorCode": "§a"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "NO DEBUFF",
+          "colorCode": "§a"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "SKYWARS",
+          "colorCode": "§4"
+        },
+        {
+          "id": 7,
+          "x": "centerx + 137",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "UHC",
+          "colorCode": "§4"
+        },
+        {
+          "id": 8,
+          "x": "centerx - 213",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "BLITZ",
+          "colorCode": "§a"
+        },
+        {
+          "id": 9,
+          "x": "centerx - 114",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "COMBO",
+          "colorCode": "§a"
+        },
+        {
+          "id": 10,
+          "x": "centerx + 88",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "OP",
+          "colorCode": "§4"
+        },
+        {
+          "id": 11,
+          "x": "centerx - 213",
+          "y": "centery + 60",
+          "width": 51,
+          "height": 20,
+          "label": "BOW",
+          "colorCode": "§a"
+        },
+        {
+          "id": 12,
+          "x": "centerx - 150",
+          "y": "centery + 60",
+          "width": 50,
+          "height": 20,
+          "label": "BOXING",
+          "colorCode": "§a"
+        },
+        {
+          "id": 13,
+          "x": "centerx - 88",
+          "y": "centery + 60",
+          "width": 51,
+          "height": 20,
+          "label": "TNT",
+          "colorCode": "§a"
+        },
+        {
+          "id": 14,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_classic_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_sumo_duel"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsMWGui"
+        },
+        "3": {
+          "type": "opengui",
+          "string": "DuelsBridgeGui"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play duels_parkour_eight"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play duels_potion_duel"
+        },
+        "6": {
+          "type": "opengui",
+          "string": "DuelsSkyWarsGui"
+        },
+        "7": {
+          "type": "opengui",
+          "string": "DuelsUHCGui"
+        },
+        "8": {
+          "type": "command",
+          "string": "/play duels_blitz_duel"
+        },
+        "9": {
+          "type": "command",
+          "string": "/play duels_combo_duel"
+        },
+        "10": {
+          "type": "opengui",
+          "string": "DuelsOPGui"
+        },
+        "11": {
+          "type": "command",
+          "string": "/play duels_bow_duel"
+        },
+        "12": {
+          "type": "command",
+          "string": "/play duels_blitz_duel"
+        },
+        "13": {
+          "type": "command",
+          "string": "/play duels_boxing_duel"
+        },
+        "14": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "DuelsMWGui": {
+      "name": "DUELS - MEGA WALLS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "MEGAWALLS 1s",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "MEGAWALLS 2s",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_mw_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_mw_doubles"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "DuelsBridgeGui": {
+      "name": "DUELS - BRIDGE",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BRIDGE 1v1",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BRIDGE 2v2",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BRIDGE 3v3",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BRIDGE 4v4",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 213",
+          "y": "centery + 24",
+          "width": 85,
+          "height": 20,
+          "label": "BRIDGE 2v2v2v2",
+          "colorCode": "§4"
+        },
+        {
+          "id": 5,
+          "x": "centerx + 129",
+          "y": "centery + 24",
+          "width": 85,
+          "height": 20,
+          "label": "BRIDGE 3v3v3v3",
+          "colorCode": "§4"
+        },
+        {
+          "id": 6,
+          "x": "centerx - 43",
+          "y": "centery + 24",
+          "width": 85,
+          "height": 20,
+          "label": "BRIDGE CTF 3v3",
+          "colorCode": "§1"
+        },
+        {
+          "id": 7,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_bridge_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_bridge_doubles"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play duels_bridge_threes"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play duels_bridge_four"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play duels_bridge_2v2v2v2"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play duels_bridge_3v3v3v3"
+        },
+        "6": {
+          "type": "command",
+          "string": "/play duels_capture_threes"
+        },
+        "7": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "DuelsSkyWarsGui": {
+      "name": "DUELS - SKYWARS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SKYWARS 1s",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SKYWARS 2s",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_sw_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_sw_doubles"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "DuelsUHCGui": {
+      "name": "DUELS - UHC",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC 1v1",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC 2v2",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC 4v4",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC FFA",
+          "colorCode": "§4"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_uhc_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_uhc_doubles"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play duels_uhc_four"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play duels_uhc_meetup"
+        },
+        "4": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "DuelsOPGui": {
+      "name": "DUELS - OP",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "OP SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "OP DOUBLES",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play duels_op_duel"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play duels_op_doubles"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "ArcadeGui": {
+      "name": "ARCADE",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 201",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "DROPPER",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 102",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "ZOMBIES",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 26",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PARTY GAMES",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 125",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PIXEL PARTY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 201",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "BLOCKING DEAD",
+          "colorCode": "§a"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 102",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "CTW",
+          "colorCode": "§a"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 26",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "CREEPER",
+          "colorCode": "§a"
+        },
+        {
+          "id": 7,
+          "x": "centerx + 125",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "DRAGON WARS",
+          "colorCode": "§a"
+        },
+        {
+          "id": 8,
+          "x": "centerx - 201",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "ENDER SPLEEF",
+          "colorCode": "§b"
+        },
+        {
+          "id": 9,
+          "x": "centerx - 102",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "FARM HUNT",
+          "colorCode": "§b"
+        },
+        {
+          "id": 10,
+          "x": "centerx + 26",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "FOOTBALL",
+          "colorCode": "§b"
+        },
+        {
+          "id": 11,
+          "x": "centerx + 125",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "GALAXY WARS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 12,
+          "x": "centerx - 201",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "HIDE AND SEEK",
+          "colorCode": "§a"
+        },
+        {
+          "id": 13,
+          "x": "centerx - 102",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "HITW",
+          "colorCode": "§a"
+        },
+        {
+          "id": 14,
+          "x": "centerx + 26",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "THROW OUT",
+          "colorCode": "§a"
+        },
+        {
+          "id": 15,
+          "x": "centerx + 125",
+          "y": "centery + 60",
+          "width": 76,
+          "height": 20,
+          "label": "PAINTERS",
+          "colorCode": "§a"
+        },
+        {
+          "id": 16,
+          "x": "centerx - 201",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "HYPIXEL SAYS",
+          "colorCode": "§a"
+        },
+        {
+          "id": 17,
+          "x": "centerx + 125",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "MINI WALLS",
+          "colorCode": "§a"
+        },
+        {
+          "id": 18,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play arcade_dropper"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play arcade_party_games_1"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play arcade_pixel_party"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play arcade_day_one"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play arcade_pvp_ctw"
+        },
+        "6": {
+          "type": "command",
+          "string": "/play arcade_creeper_defense"
+        },
+        "7": {
+          "type": "command",
+          "string": "/play arcade_dragon_wars"
+        },
+        "8": {
+          "type": "command",
+          "string": "/play arcade_ender_spleef"
+        },
+        "9": {
+          "type": "command",
+          "string": "/play arcade_farm_hunt"
+        },
+        "10": {
+          "type": "command",
+          "string": "/play arcade_soccer"
+        },
+        "11": {
+          "type": "command",
+          "string": "/play arcade_starwars"
+        },
+        "13": {
+          "type": "command",
+          "string": "/play arcade_hole_in_the_wall"
+        },
+        "14": {
+          "type": "command",
+          "string": "/play arcade_throw_out"
+        },
+        "15": {
+          "type": "command",
+          "string": "/play arcade_pixel_painters"
+        },
+        "16": {
+          "type": "command",
+          "string": "/play arcade_simon_says"
+        },
+        "17": {
+          "type": "command",
+          "string": "/play arcade_mini_walls"
+        },
+        "18": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        },
+        "12": {
+          "type": "opengui",
+          "string": "ArcadeHideAndSeekGui"
+        },
+        "1": {
+          "type": "opengui",
+          "string": "ArcadeZombiesGui"
+        }
+      }
+    },
+    "ArcadeHideAndSeekGui": {
+      "name": "ARCADE - HIDE AND SEEK",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PROP HUNT",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PARTY POOPER",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play arcade_hide_and_seek_prop_hunt"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play arcade_hide_and_seek_party_pooper"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "ArcadeGui"
+        }
+      }
+    },
+    "ArcadeZombiesGui": {
+      "name": "ARCADE - ZOMBIES",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 85,
+          "height": 20,
+          "label": "DEAD END",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 43",
+          "y": "centery - 24",
+          "width": 85,
+          "height": 20,
+          "label": "BAD BLOOD",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 129",
+          "y": "centery - 24",
+          "width": 85,
+          "height": 20,
+          "label": "ALIEN ARCADIUM",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play arcade_zombies_dead_end"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play arcade_zombies_bad_blood"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play arcade_zombies_alien_arcadium"
+        },
+        "3": {
+          "type": "opengui",
+          "string": "ArcadeGui"
+        }
+      }
+    },
+    "MurderGui": {
+      "name": "MURDER MYSTERY",
+      "icon": {
+        "sheet": 1,
+        "textureX": 152,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CLASSIC",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "DOUBLE UP",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "ASSASSINS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "INFECTION",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play murder_classic"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play murder_double_up"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play murder_assassins"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play murder_infection"
+        },
+        "4": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "ClassicGui": {
+      "name": "CLASSIC GAMES",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 152
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "VAMPIREZ",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TKR",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "WALLS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PAINTBALL",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 162",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "ARENA 1v1",
+          "colorCode": "§3"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "ARENA 2v2",
+          "colorCode": "§3"
+        },
+        {
+          "id": 6,
+          "x": "centerx + 88",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "ARENA 4v4",
+          "colorCode": "§3"
+        },
+        {
+          "id": 7,
+          "x": "centerx - 114",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "QUAKE SOLO",
+          "colorCode": "§6"
+        },
+        {
+          "id": 8,
+          "x": "centerx + 38",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "QUAKE TEAMS",
+          "colorCode": "§6"
+        },
+        {
+          "id": 9,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play vampirez"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play tkr"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play walls"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play paintball"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play arena_1v1"
+        },
+        "5": {
+          "type": "command",
+          "string": "/play arena_2v2"
+        },
+        "6": {
+          "type": "command",
+          "string": "/play arena_4v4"
+        },
+        "7": {
+          "type": "command",
+          "string": "/play quake_solo"
+        },
+        "8": {
+          "type": "command",
+          "string": "/play quake_teams"
+        },
+        "9": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "TNTGui": {
+      "name": "TNT GAMES",
+      "icon": {
+        "sheet": 1,
+        "textureX": 76,
+        "textureY": 152
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TNT RUN",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TNT TAG",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TNT WIZARDS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "PVP RUN",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "BOW SPLEEF",
+          "colorCode": "§b"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play tnt_tntrun"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play tnt_tntag"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play tnt_capture"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play tnt_pvprun"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play tnt_bowspleef"
+        },
+        "5": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "MegaWallsGui": {
+      "name": "MEGA WALLS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 152,
+        "textureY": 152
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 162",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "FACEOFF",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 37",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "STANDARD",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 88",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CHALLENGE",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play mw_face_off"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play mw_standard"
+        },
+        "2": {
+          "type": "chat",
+          "string": "§4[§6§lQUICKJOIN§4]§a: This command has not been found - yet. If you found it make sure to open an issue on our github page!"
+        },
+        "3": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "BBGui": {
+      "name": "BUILD BATTLE",
+      "icon": {
+        "sheet": 2,
+        "textureX": 0,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TEAMS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SOLO PRO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "GTB",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play build_battle_solo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play build_battle_teams_normal"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play build_battle_solo_pro"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play build_battle_guess_the_build"
+        },
+        "4": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "UHCGui": {
+      "name": "UHC",
+      "icon": {
+        "sheet": 2,
+        "textureX": 76,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SPEED SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SPEED TEAMS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "UHC TEAMS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play speed_solo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play speed_team_normal"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play uhc_solo"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play uhc_teams"
+        },
+        "4": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "BSGGui": {
+      "name": "BLITZ SURVIVAL GAMES",
+      "icon": {
+        "sheet": 2,
+        "textureX": 152,
+        "textureY": 0
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TEAMS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play blitz_solo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play blitz_teams_normal"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "CVCGui": {
+      "name": "COPS AND CRIMS",
+      "icon": {
+        "sheet": 2,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 213",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "DEFUSAL",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CHALLENGE",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "GUN GAME",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TEAM DM",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play mcgo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play mcgo_normal_party"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play mcgo_gungame"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play mcgo_deathmatch"
+        },
+        "4": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "WarlordsGui": {
+      "name": "WARLORDS",
+      "icon": {
+        "sheet": 2,
+        "textureX": 76,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 162",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CTF",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 37",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "DOMINATION",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 88",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TEAM DM",
+          "colorCode": "§b"
+        },
+        {
+          "id": 6,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play warlords_ctf_mini"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play warlords_domination"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play warlords_team_deathmatch"
+        },
+        "6": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "SmashGui": {
+      "name": "SMASH HEROES",
+      "icon": {
+        "sheet": 2,
+        "textureX": 152,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 162",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SOLO",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "FRIENDS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx + 88",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "TEAMS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "1v1",
+          "colorCode": "§d"
+        },
+        {
+          "id": 4,
+          "x": "centerx + 38",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "2v2",
+          "colorCode": "§d"
+        },
+        {
+          "id": 5,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play super_smash_solo_normal"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play super_smash_friends_normal"
+        },
+        "2": {
+          "type": "command",
+          "string": "/play super_smash_teams_normal"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play super_smash_1v1_normal"
+        },
+        "4": {
+          "type": "command",
+          "string": "/play super_smash_2v2_normal"
+        },
+        "5": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
       }
     }
   }
+}
