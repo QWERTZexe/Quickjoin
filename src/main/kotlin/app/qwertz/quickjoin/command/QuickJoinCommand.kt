@@ -5,6 +5,7 @@ import app.qwertz.quickjoin.QuickJoin.Companion.config
 import app.qwertz.quickjoin.gui.QuickJoinGui
 import cc.polyfrost.oneconfig.utils.commands.annotations.Command
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
+import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
@@ -27,8 +28,14 @@ class QuickJoinCommand : CommandBase() {
     override fun processCommand(sender: ICommandSender, args: Array<String>) {
         // Ensure that this command is only executed on the client side
         if (IsEnabled().enabledCheck()) {
-            GuiUtils.displayScreen(QuickJoinGui())
-        } else {
+            if (HypixelUtils().isHypixel) {
+                GuiUtils.displayScreen(QuickJoinGui())
+            }
+            else {
+                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."))
+            }
+        }
+        else {
             Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
     }}
 

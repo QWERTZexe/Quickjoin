@@ -13,6 +13,7 @@ import cc.polyfrost.oneconfig.config.data.OptionSize
 import cc.polyfrost.oneconfig.libs.universal.UKeyboard
 import cc.polyfrost.oneconfig.utils.NetworkUtils
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
+import cc.polyfrost.oneconfig.utils.hypixel.HypixelUtils
 import com.google.gson.Gson
 import net.minecraft.client.Minecraft
 import net.minecraft.util.ChatComponentText
@@ -25,17 +26,17 @@ var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), a
 
 class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
-    @Switch(name = "BOLD BUTTONS",size = OptionSize.SINGLE)
+    @Switch(name = "Bold Buttons",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = false
-    @Switch(name = "COLORED BUTTONS", size = OptionSize.SINGLE)
+    @Switch(name = "Colored Buttons", size = OptionSize.SINGLE)
     var ColorSwitch: Boolean = true
-    @Switch(name = "ENABLE COMMAND ALIAS", size = OptionSize.SINGLE)
+    @Switch(name = "Enable Command Alias", size = OptionSize.SINGLE)
     var EnableAlias: Boolean = true
-    @Text(name = "COMMAND ALIAS",size = OptionSize.SINGLE)
+    @Text(name = "Command Alias",size = OptionSize.SINGLE)
     var CommandAlias: String = "qj"
-    @Switch(name = "ENABLE KEYBIND", size = OptionSize.SINGLE)
+    @Switch(name = "Enable Keybind", size = OptionSize.SINGLE)
     var EnableKeyBind: Boolean = true
-    @KeyBind(name = "KEYBIND", size = OptionSize.SINGLE)
+    @KeyBind(name = "Keybind", size = OptionSize.SINGLE)
     var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_X)
     fun loadConfig(): app.qwertz.quickjoin.gui.Config {
         try {
@@ -58,7 +59,12 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
                         Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
                     }
                 else {
-                    GuiUtils.displayScreen(QuickJoinGui())
+                    if (HypixelUtils().isHypixel) {
+                        GuiUtils.displayScreen(QuickJoinGui())
+                    }
+                    else {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."))
+                    }
                 }
             }
         }
