@@ -713,7 +713,7 @@
           "y": "centery - 24",
           "width": 76,
           "height": 20,
-          "label": "TNT2s",
+          "label": "TNT 2s",
           "colorCode": "§4"
         },
         {
@@ -731,7 +731,7 @@
           "y": "centery + 4",
           "width": 76,
           "height": 20,
-          "label": "RUSH2s",
+          "label": "RUSH 2s",
           "colorCode": "§e"
         },
         {
@@ -763,8 +763,8 @@
         },
         {
           "id": 9,
-          "x": "centerx-25",
-          "y": "centery+100",
+          "x": "centerx - 25",
+          "y": "centery + 100",
           "width": 50,
           "height": 20,
           "label": "BACK",
