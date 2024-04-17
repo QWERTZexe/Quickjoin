@@ -145,8 +145,8 @@
         },
         {
           "id": 5,
-          "x": "centerx - 162",
-          "y": "centery - 52",
+          "x": "centerx + 88",
+          "y": "centery - 108",
           "width": 76,
           "height": 20,
           "label": "PIT",
@@ -181,12 +181,12 @@
         },
         {
           "id": 11,
-          "x": "centerx + 88",
-          "y": "centery - 108",
+          "x": "centerx - 162",
+          "y": "centery - 52",
           "width": 76,
           "height": 20,
-          "label": "WOOL WARS",
-          "colorCode": "§b"
+          "label": "WOOL GAMES",
+          "colorCode": "§2"
         },
         {
           "id": 12,
@@ -245,8 +245,8 @@
           "string": "TNTGui"
         },
         "11": {
-          "type": "command",
-          "string": "/play wool_wool_wars_two_four"
+          "type": "opengui",
+          "string": "WoolGui"
         },
         "12": {
           "type": "close"
@@ -2545,6 +2545,57 @@
           "string": "/play super_smash_2v2_normal"
         },
         "5": {
+          "type": "opengui",
+          "string": "QuickJoinGui"
+        }
+      }
+    },
+    "WoolGui": {
+      "name": "WOOL GAMES",
+      "icon": {
+        "sheet": 2,
+        "textureX": 0,
+        "textureY": 152
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "WOOL WARS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "SHEEP WARS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play wool_wool_wars_two_four"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play prototype_sheepwars_two_six"
+        },
+        "2": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
