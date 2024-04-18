@@ -185,8 +185,8 @@
           "y": "centery - 52",
           "width": 76,
           "height": 20,
-          "label": "WOOL GAMES",
-          "colorCode": "§2"
+          "label": "NEW: WOOL GAMES",
+          "colorCode": "§6"
         },
         {
           "id": 12,
@@ -2574,7 +2574,7 @@
           "width": 76,
           "height": 20,
           "label": "SHEEP WARS",
-          "colorCode": "§b"
+          "colorCode": "§6"
         },
         {
           "id": 2,
