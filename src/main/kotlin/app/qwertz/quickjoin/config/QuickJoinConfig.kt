@@ -53,6 +53,7 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
 
         guis = loadConfig()
         var config: QuickJoinConfig = this // Assign the current instance of QuickJoinConfig to config
+        initialize()
         registerKeyBind(QJKeyBind) {
             if (config.EnableKeyBind) {
                 if (!config.enabled) {
@@ -68,7 +69,6 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
                 }
             }
         }
-        initialize()
 
     }
 }
