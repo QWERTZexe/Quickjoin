@@ -296,6 +296,15 @@
         {
           "id": 0,
           "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -303,7 +312,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 37",
           "y": "centery - 24",
           "width": 76,
@@ -312,7 +321,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
@@ -321,7 +330,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx - 162",
           "y": "centery + 4",
           "width": 76,
@@ -330,7 +339,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 37",
           "y": "centery + 4",
           "width": 76,
@@ -339,7 +348,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx + 88",
           "y": "centery + 4",
           "width": 76,
@@ -348,7 +357,7 @@
           "colorCode": "§2"
         },
         {
-          "id": 6,
+          "id": 7,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -360,29 +369,33 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play bedwars_eight_one"
+          "string": "/lobby bedwars"
         },
         "1": {
           "type": "command",
-          "string": "/play bedwars_eight_two"
+          "string": "/play bedwars_eight_one"
         },
         "2": {
           "type": "command",
-          "string": "/play bedwars_four_three"
+          "string": "/play bedwars_eight_two"
         },
         "3": {
           "type": "command",
-          "string": "/play bedwars_four_four"
+          "string": "/play bedwars_four_three"
         },
         "4": {
           "type": "command",
-          "string": "/play bedwars_two_four"
+          "string": "/play bedwars_four_four"
         },
         "5": {
+          "type": "command",
+          "string": "/play bedwars_two_four"
+        },
+        "6": {
           "type": "opengui",
           "string": "BedWarsDreamsGui"
         },
-        "6": {
+        "7": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -567,6 +580,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -574,7 +596,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -583,7 +605,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -592,7 +614,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -601,7 +623,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 213",
           "y": "centery + 4",
           "width": 76,
@@ -610,7 +632,7 @@
           "colorCode": "§6"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 114",
           "y": "centery + 4",
           "width": 76,
@@ -619,7 +641,7 @@
           "colorCode": "§6"
         },
         {
-          "id": 6,
+          "id": 7,
           "x": "centerx + 87",
           "y": "centery + 4",
           "width": 76,
@@ -628,7 +650,7 @@
           "colorCode": "§2"
         },
         {
-          "id": 7,
+          "id": 8,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -640,33 +662,37 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play solo_normal"
+          "string": "/lobby skywars"
         },
         "1": {
           "type": "command",
-          "string": "/play teams_normal"
+          "string": "/play solo_normal"
         },
         "2": {
           "type": "command",
-          "string": "/play solo_insane"
+          "string": "/play teams_normal"
         },
         "3": {
           "type": "command",
-          "string": "/play teams_insane"
+          "string": "/play solo_insane"
         },
         "4": {
           "type": "command",
-          "string": "/play mega_normal"
+          "string": "/play teams_insane"
         },
         "5": {
           "type": "command",
-          "string": "/play mega_doubles"
+          "string": "/play mega_normal"
         },
         "6": {
+          "type": "command",
+          "string": "/play mega_doubles"
+        },
+        "7": {
           "type": "opengui",
           "string": "SkyWarsLabGui"
         },
-        "7": {
+        "8": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -825,6 +851,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -832,7 +867,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -841,7 +876,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -850,7 +885,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -859,7 +894,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 213",
           "y": "centery + 4",
           "width": 76,
@@ -868,7 +903,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 114",
           "y": "centery + 4",
           "width": 76,
@@ -877,7 +912,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 6,
+          "id": 7,
           "x": "centerx + 38",
           "y": "centery + 4",
           "width": 76,
@@ -886,7 +921,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 7,
+          "id": 8,
           "x": "centerx + 137",
           "y": "centery + 4",
           "width": 76,
@@ -895,7 +930,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 8,
+          "id": 9,
           "x": "centerx - 213",
           "y": "centery + 32",
           "width": 76,
@@ -904,7 +939,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 9,
+          "id": 10,
           "x": "centerx - 114",
           "y": "centery + 32",
           "width": 76,
@@ -913,7 +948,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 10,
+          "id": 11,
           "x": "centerx + 88",
           "y": "centery + 32",
           "width": 76,
@@ -922,7 +957,7 @@
           "colorCode": "§4"
         },
         {
-          "id": 11,
+          "id": 12,
           "x": "centerx - 213",
           "y": "centery + 60",
           "width": 51,
@@ -931,7 +966,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 12,
+          "id": 13,
           "x": "centerx - 150",
           "y": "centery + 60",
           "width": 50,
@@ -940,7 +975,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 13,
+          "id": 14,
           "x": "centerx - 88",
           "y": "centery + 60",
           "width": 51,
@@ -949,7 +984,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 14,
+          "id": 15,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -961,61 +996,65 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play duels_classic_duel"
+          "string": "/lobby duels"
         },
         "1": {
           "type": "command",
-          "string": "/play duels_sumo_duel"
+          "string": "/play duels_classic_duel"
         },
         "2": {
-          "type": "opengui",
-          "string": "DuelsMWGui"
+          "type": "command",
+          "string": "/play duels_sumo_duel"
         },
         "3": {
           "type": "opengui",
-          "string": "DuelsBridgeGui"
+          "string": "DuelsMWGui"
         },
         "4": {
-          "type": "command",
-          "string": "/play duels_parkour_eight"
+          "type": "opengui",
+          "string": "DuelsBridgeGui"
         },
         "5": {
           "type": "command",
-          "string": "/play duels_potion_duel"
+          "string": "/play duels_parkour_eight"
         },
         "6": {
-          "type": "opengui",
-          "string": "DuelsSkyWarsGui"
+          "type": "command",
+          "string": "/play duels_potion_duel"
         },
         "7": {
           "type": "opengui",
-          "string": "DuelsUHCGui"
+          "string": "DuelsSkyWarsGui"
         },
         "8": {
-          "type": "command",
-          "string": "/play duels_blitz_duel"
+          "type": "opengui",
+          "string": "DuelsUHCGui"
         },
         "9": {
           "type": "command",
-          "string": "/play duels_combo_duel"
+          "string": "/play duels_blitz_duel"
         },
         "10": {
+          "type": "command",
+          "string": "/play duels_combo_duel"
+        },
+        "11": {
           "type": "opengui",
           "string": "DuelsOPGui"
         },
-        "11": {
+        "12": {
           "type": "command",
           "string": "/play duels_bow_duel"
         },
-        "12": {
+        "13": {
           "type": "command",
           "string": "/play duels_blitz_duel"
         },
-        "13": {
+        "14": {
           "type": "command",
           "string": "/play duels_boxing_duel"
         },
-        "14": {
+        "15": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -1378,6 +1417,15 @@
         {
           "id": 0,
           "x": "centerx - 201",
+          "y": "centery - 80",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 201",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -1385,7 +1433,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 102",
           "y": "centery - 24",
           "width": 76,
@@ -1394,7 +1442,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 26",
           "y": "centery - 24",
           "width": 76,
@@ -1403,7 +1451,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 125",
           "y": "centery - 24",
           "width": 76,
@@ -1412,7 +1460,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 201",
           "y": "centery + 4",
           "width": 76,
@@ -1421,7 +1469,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 102",
           "y": "centery + 4",
           "width": 76,
@@ -1430,7 +1478,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 6,
+          "id": 7,
           "x": "centerx + 26",
           "y": "centery + 4",
           "width": 76,
@@ -1439,7 +1487,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 7,
+          "id": 8,
           "x": "centerx + 125",
           "y": "centery + 4",
           "width": 76,
@@ -1448,7 +1496,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 8,
+          "id": 9,
           "x": "centerx - 201",
           "y": "centery + 32",
           "width": 76,
@@ -1457,7 +1505,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 9,
+          "id": 10,
           "x": "centerx - 102",
           "y": "centery + 32",
           "width": 76,
@@ -1466,7 +1514,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 10,
+          "id": 11,
           "x": "centerx + 26",
           "y": "centery + 32",
           "width": 76,
@@ -1475,7 +1523,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 11,
+          "id": 12,
           "x": "centerx + 125",
           "y": "centery + 32",
           "width": 76,
@@ -1484,7 +1532,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 12,
+          "id": 13,
           "x": "centerx - 201",
           "y": "centery + 60",
           "width": 76,
@@ -1493,7 +1541,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 13,
+          "id": 14,
           "x": "centerx - 102",
           "y": "centery + 60",
           "width": 76,
@@ -1502,7 +1550,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 14,
+          "id": 15,
           "x": "centerx + 26",
           "y": "centery + 60",
           "width": 76,
@@ -1511,7 +1559,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 15,
+          "id": 16,
           "x": "centerx + 125",
           "y": "centery + 60",
           "width": 76,
@@ -1520,7 +1568,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 16,
+          "id": 17,
           "x": "centerx - 201",
           "y": "centery - 52",
           "width": 76,
@@ -1529,7 +1577,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 17,
+          "id": 18,
           "x": "centerx + 125",
           "y": "centery - 52",
           "width": 76,
@@ -1538,7 +1586,7 @@
           "colorCode": "§a"
         },
         {
-          "id": 18,
+          "id": 19,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -1550,77 +1598,81 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play arcade_dropper"
+          "string": "/lobby arcade"
         },
-        "2": {
+        "1": {
           "type": "command",
-          "string": "/play arcade_party_games_1"
+          "string": "/play arcade_dropper"
         },
         "3": {
           "type": "command",
-          "string": "/play arcade_pixel_party"
+          "string": "/play arcade_party_games_1"
         },
         "4": {
           "type": "command",
-          "string": "/play arcade_day_one"
+          "string": "/play arcade_pixel_party"
         },
         "5": {
           "type": "command",
-          "string": "/play arcade_pvp_ctw"
+          "string": "/play arcade_day_one"
         },
         "6": {
           "type": "command",
-          "string": "/play arcade_creeper_defense"
+          "string": "/play arcade_pvp_ctw"
         },
         "7": {
           "type": "command",
-          "string": "/play arcade_dragon_wars"
+          "string": "/play arcade_creeper_defense"
         },
         "8": {
           "type": "command",
-          "string": "/play arcade_ender_spleef"
+          "string": "/play arcade_dragon_wars"
         },
         "9": {
           "type": "command",
-          "string": "/play arcade_farm_hunt"
+          "string": "/play arcade_ender_spleef"
         },
         "10": {
           "type": "command",
-          "string": "/play arcade_soccer"
+          "string": "/play arcade_farm_hunt"
         },
         "11": {
           "type": "command",
-          "string": "/play arcade_starwars"
+          "string": "/play arcade_soccer"
         },
-        "13": {
+        "12": {
           "type": "command",
-          "string": "/play arcade_hole_in_the_wall"
+          "string": "/play arcade_starwars"
         },
         "14": {
           "type": "command",
-          "string": "/play arcade_throw_out"
+          "string": "/play arcade_hole_in_the_wall"
         },
         "15": {
           "type": "command",
-          "string": "/play arcade_pixel_painters"
+          "string": "/play arcade_throw_out"
         },
         "16": {
           "type": "command",
-          "string": "/play arcade_simon_says"
+          "string": "/play arcade_pixel_painters"
         },
         "17": {
           "type": "command",
-          "string": "/play arcade_mini_walls"
+          "string": "/play arcade_simon_says"
         },
         "18": {
+          "type": "command",
+          "string": "/play arcade_mini_walls"
+        },
+        "19": {
           "type": "opengui",
           "string": "QuickJoinGui"
         },
-        "12": {
+        "13": {
           "type": "opengui",
           "string": "ArcadeHideAndSeekGui"
         },
-        "1": {
+        "2": {
           "type": "opengui",
           "string": "ArcadeZombiesGui"
         }
@@ -1752,6 +1804,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -1759,7 +1820,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -1768,7 +1829,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -1777,7 +1838,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -1786,7 +1847,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -1798,21 +1859,25 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play murder_classic"
+          "string": "/lobby murder"
         },
         "1": {
           "type": "command",
-          "string": "/play murder_double_up"
+          "string": "/play murder_classic"
         },
         "2": {
           "type": "command",
-          "string": "/play murder_assassins"
+          "string": "/play murder_double_up"
         },
         "3": {
           "type": "command",
-          "string": "/play murder_infection"
+          "string": "/play murder_assassins"
         },
         "4": {
+          "type": "command",
+          "string": "/play murder_infection"
+        },
+        "5": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -1829,6 +1894,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -1836,7 +1910,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -1845,7 +1919,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -1854,7 +1928,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -1863,7 +1937,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 162",
           "y": "centery + 4",
           "width": 76,
@@ -1872,7 +1946,7 @@
           "colorCode": "§3"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 38",
           "y": "centery + 4",
           "width": 76,
@@ -1881,7 +1955,7 @@
           "colorCode": "§3"
         },
         {
-          "id": 6,
+          "id": 7,
           "x": "centerx + 88",
           "y": "centery + 4",
           "width": 76,
@@ -1890,7 +1964,7 @@
           "colorCode": "§3"
         },
         {
-          "id": 7,
+          "id": 8,
           "x": "centerx - 114",
           "y": "centery + 32",
           "width": 76,
@@ -1899,7 +1973,7 @@
           "colorCode": "§6"
         },
         {
-          "id": 8,
+          "id": 9,
           "x": "centerx + 38",
           "y": "centery + 32",
           "width": 76,
@@ -1908,7 +1982,7 @@
           "colorCode": "§6"
         },
         {
-          "id": 9,
+          "id": 10,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -1920,41 +1994,45 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play vampirez"
+          "string": "/lobby classic"
         },
         "1": {
           "type": "command",
-          "string": "/play tkr"
+          "string": "/play vampirez"
         },
         "2": {
           "type": "command",
-          "string": "/play walls"
+          "string": "/play tkr"
         },
         "3": {
           "type": "command",
-          "string": "/play paintball"
+          "string": "/play walls"
         },
         "4": {
           "type": "command",
-          "string": "/play arena_1v1"
+          "string": "/play paintball"
         },
         "5": {
           "type": "command",
-          "string": "/play arena_2v2"
+          "string": "/play arena_1v1"
         },
         "6": {
           "type": "command",
-          "string": "/play arena_4v4"
+          "string": "/play arena_2v2"
         },
         "7": {
           "type": "command",
-          "string": "/play quake_solo"
+          "string": "/play arena_4v4"
         },
         "8": {
           "type": "command",
-          "string": "/play quake_teams"
+          "string": "/play quake_solo"
         },
         "9": {
+          "type": "command",
+          "string": "/play quake_teams"
+        },
+        "10": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -1971,6 +2049,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -1978,7 +2065,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -1987,7 +2074,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -1996,7 +2083,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -2005,7 +2092,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 38",
           "y": "centery + 4",
           "width": 76,
@@ -2014,7 +2101,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2026,25 +2113,29 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play tnt_tntrun"
+          "string": "/lobby tnt"
         },
         "1": {
           "type": "command",
-          "string": "/play tnt_tntag"
+          "string": "/play tnt_tntrun"
         },
         "2": {
           "type": "command",
-          "string": "/play tnt_capture"
+          "string": "/play tnt_tntag"
         },
         "3": {
           "type": "command",
-          "string": "/play tnt_pvprun"
+          "string": "/play tnt_capture"
         },
         "4": {
           "type": "command",
-          "string": "/play tnt_bowspleef"
+          "string": "/play tnt_pvprun"
         },
         "5": {
+          "type": "command",
+          "string": "/play tnt_bowspleef"
+        },
+        "6": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2061,6 +2152,15 @@
         {
           "id": 0,
           "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2068,7 +2168,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 37",
           "y": "centery - 24",
           "width": 76,
@@ -2077,7 +2177,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
@@ -2086,7 +2186,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2098,17 +2198,21 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play mw_face_off"
+          "string": "/lobby megawalls"
         },
         "1": {
           "type": "command",
-          "string": "/play mw_standard"
+          "string": "/play mw_face_off"
         },
         "2": {
+          "type": "command",
+          "string": "/play mw_standard"
+        },
+        "3": {
           "type": "chat",
           "string": "§4[§6§lQUICKJOIN§4]§a: This command has not been found - yet. If you found it make sure to open an issue on our github page!"
         },
-        "3": {
+        "4": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2125,6 +2229,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2132,7 +2245,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -2141,7 +2254,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -2150,7 +2263,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -2159,7 +2272,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2171,21 +2284,25 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play build_battle_solo_normal"
+          "string": "/lobby build_battle"
         },
         "1": {
           "type": "command",
-          "string": "/play build_battle_teams_normal"
+          "string": "/play build_battle_solo_normal"
         },
         "2": {
           "type": "command",
-          "string": "/play build_battle_solo_pro"
+          "string": "/play build_battle_teams_normal"
         },
         "3": {
           "type": "command",
-          "string": "/play build_battle_guess_the_build"
+          "string": "/play build_battle_solo_pro"
         },
         "4": {
+          "type": "command",
+          "string": "/play build_battle_guess_the_build"
+        },
+        "5": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2202,6 +2319,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2209,7 +2335,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -2218,7 +2344,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -2227,7 +2353,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -2236,7 +2362,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2248,21 +2374,25 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play speed_solo_normal"
+          "string": "/lobby uhc"
         },
         "1": {
           "type": "command",
-          "string": "/play speed_team_normal"
+          "string": "/play speed_solo_normal"
         },
         "2": {
           "type": "command",
-          "string": "/play uhc_solo"
+          "string": "/play speed_team_normal"
         },
         "3": {
           "type": "command",
-          "string": "/play uhc_teams"
+          "string": "/play uhc_solo"
         },
         "4": {
+          "type": "command",
+          "string": "/play uhc_teams"
+        },
+        "5": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2279,6 +2409,15 @@
         {
           "id": 0,
           "x": "centerx - 114",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2286,7 +2425,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -2295,7 +2434,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2307,13 +2446,17 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play blitz_solo_normal"
+          "string": "/lobby blitz"
         },
         "1": {
           "type": "command",
-          "string": "/play blitz_teams_normal"
+          "string": "/play blitz_solo_normal"
         },
         "2": {
+          "type": "command",
+          "string": "/play blitz_teams_normal"
+        },
+        "3": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2330,6 +2473,15 @@
         {
           "id": 0,
           "x": "centerx - 213",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 213",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2337,7 +2489,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -2346,7 +2498,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -2355,7 +2507,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx + 137",
           "y": "centery - 24",
           "width": 76,
@@ -2364,7 +2516,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2376,21 +2528,25 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play mcgo_normal"
+          "string": "/lobby cvc"
         },
         "1": {
           "type": "command",
-          "string": "/play mcgo_normal_party"
+          "string": "/play mcgo_normal"
         },
         "2": {
           "type": "command",
-          "string": "/play mcgo_gungame"
+          "string": "/play mcgo_normal_party"
         },
         "3": {
           "type": "command",
-          "string": "/play mcgo_deathmatch"
+          "string": "/play mcgo_gungame"
         },
         "4": {
+          "type": "command",
+          "string": "/play mcgo_deathmatch"
+        },
+        "5": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2407,6 +2563,15 @@
         {
           "id": 0,
           "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2414,7 +2579,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 37",
           "y": "centery - 24",
           "width": 76,
@@ -2423,7 +2588,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
@@ -2432,7 +2597,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 6,
+          "id": 4,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2444,17 +2609,21 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play warlords_ctf_mini"
+          "string": "/lobby warlords"
         },
         "1": {
           "type": "command",
-          "string": "/play warlords_domination"
+          "string": "/play warlords_ctf_mini"
         },
         "2": {
           "type": "command",
+          "string": "/play warlords_domination"
+        },
+        "3": {
+          "type": "command",
           "string": "/play warlords_team_deathmatch"
         },
-        "6": {
+        "4": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2471,6 +2640,15 @@
         {
           "id": 0,
           "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2478,7 +2656,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 2,
           "x": "centerx - 38",
           "y": "centery - 24",
           "width": 76,
@@ -2487,7 +2665,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 3,
           "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
@@ -2496,7 +2674,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 4,
           "x": "centerx - 114",
           "y": "centery + 4",
           "width": 76,
@@ -2505,7 +2683,7 @@
           "colorCode": "§d"
         },
         {
-          "id": 4,
+          "id": 5,
           "x": "centerx + 38",
           "y": "centery + 4",
           "width": 76,
@@ -2514,7 +2692,7 @@
           "colorCode": "§d"
         },
         {
-          "id": 5,
+          "id": 6,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2526,25 +2704,29 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play super_smash_solo_normal"
+          "string": "/lobby smash"
         },
         "1": {
           "type": "command",
-          "string": "/play super_smash_friends_normal"
+          "string": "/play super_smash_solo_normal"
         },
         "2": {
           "type": "command",
-          "string": "/play super_smash_teams_normal"
+          "string": "/play super_smash_friends_normal"
         },
         "3": {
           "type": "command",
-          "string": "/play super_smash_1v1_normal"
+          "string": "/play super_smash_teams_normal"
         },
         "4": {
           "type": "command",
-          "string": "/play super_smash_2v2_normal"
+          "string": "/play super_smash_1v1_normal"
         },
         "5": {
+          "type": "command",
+          "string": "/play super_smash_2v2_normal"
+        },
+        "6": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
@@ -2561,6 +2743,24 @@
         {
           "id": 0,
           "x": "centerx - 114",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "LOBBY",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "PTL",
+          "colorCode": "§6"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2568,7 +2768,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 1,
+          "id": 3,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
@@ -2577,7 +2777,7 @@
           "colorCode": "§b"
         },
         {
-          "id": 2,
+          "id": 4,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2589,13 +2789,21 @@
       "funcs": {
         "0": {
           "type": "command",
-          "string": "/play wool_wool_wars_two_four"
+          "string": "/lobby wool"
         },
         "1": {
           "type": "command",
-          "string": "/play prototype_sheepwars_two_six"
+          "string": "/lobby prototype"
         },
         "2": {
+          "type": "command",
+          "string": "/play wool_wool_wars_two_four"
+        },
+        "3": {
+          "type": "command",
+          "string": "/play prototype_sheepwars_two_six"
+        },
+        "4": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
