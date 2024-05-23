@@ -1604,6 +1604,10 @@
           "type": "command",
           "string": "/play arcade_dropper"
         },
+        "2": {
+          "type": "opengui",
+          "string": "ArcadeZombiesGui"
+        },
         "3": {
           "type": "command",
           "string": "/play arcade_party_games_1"
@@ -1644,6 +1648,10 @@
           "type": "command",
           "string": "/play arcade_starwars"
         },
+        "13": {
+          "type": "opengui",
+          "string": "ArcadeHideAndSeekGui"
+        },
         "14": {
           "type": "command",
           "string": "/play arcade_hole_in_the_wall"
@@ -1667,14 +1675,6 @@
         "19": {
           "type": "opengui",
           "string": "QuickJoinGui"
-        },
-        "13": {
-          "type": "opengui",
-          "string": "ArcadeHideAndSeekGui"
-        },
-        "2": {
-          "type": "opengui",
-          "string": "ArcadeZombiesGui"
         }
       }
     },
