@@ -29,6 +29,9 @@ class QuickJoinCommand : CommandBase() {
         // Ensure that this command is only executed on the client side
         if (IsEnabled().enabledCheck()) {
             if (HypixelUtils().isHypixel) {
+                if (config.DebugMode) {
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying MainGui"))
+                }
                 GuiUtils.displayScreen(QuickJoinGui())
             }
             else {

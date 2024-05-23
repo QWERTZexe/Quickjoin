@@ -87,6 +87,9 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
             val label = "${buttonConfig.colorCode}$color$bold${buttonConfig.label}"
             val resultx = evaluateExpression(buttonConfig.x)
             val resulty = evaluateExpression(buttonConfig.y)
+            if (config.DebugMode) {
+                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Adding button $label"))
+            }
             this.buttonList.add(GuiButton(buttonConfig.id, resultx.toInt(), resulty.toInt(), buttonConfig.width, buttonConfig.height, label))
 
 
@@ -95,12 +98,13 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
 
     }
     override fun drawScreen(mouseX: Int, mouseY: Int, partialTicks: Float) {
+        // NO DEBUG MESSAGES HERE - INTENTIONALLY!
         drawRect(0, 0, this.width, this.height, 0x80000000.toInt())
         super.drawScreen(mouseX, mouseY, partialTicks)
         mc.textureManager.bindTexture(ResourceLocation("quickjoin", "Icon${bconfig.guis[guiname]?.icon?.sheet.toString()}.png"))
         GlStateManager.color(1f, 1f, 1f, 1f)
-        drawTexturedModalRect(this.width/2-38, this.height/2-130, bconfig.guis[guiname]!!.icon.textureX, bconfig.guis[guiname]!!.icon.textureY, 76, 76)
-        this.drawCenteredString(this.fontRendererObj, bconfig.guis[guiname]?.name, this.width / 2, this.height / 2 - 50, 0xFFFFFF)
+        drawTexturedModalRect(this.width/2-38, this.height/2-125, bconfig.guis[guiname]!!.icon.textureX, bconfig.guis[guiname]!!.icon.textureY, 76, 76)
+        this.drawCenteredString(this.fontRendererObj, bconfig.guis[guiname]?.name, this.width / 2, this.height / 2 - 45, 0xFFFFFF)
 
 
     }
@@ -109,9 +113,15 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
         bconfig.guis[guiname]?.funcs?.forEach { funcConfig ->
             if (funcConfig.key == buttonpressedid) {
                 if (funcConfig.value.type == "opengui") {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying ${funcConfig.value.string}"))
+                    }
                     GuiUtils.displayScreen(QuickJoinGui(funcConfig.value.string))
                 }
                 if (funcConfig.value.type == "command") {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Sending command ${funcConfig.value.string}"))
+                    }
                     Minecraft.getMinecraft().thePlayer.sendChatMessage(funcConfig.value.string)
                     GuiUtils.closeScreen()
                 }
@@ -120,9 +130,15 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
                     GuiUtils.closeScreen()
                 }
                 if (funcConfig.value.type == "close") {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Closing all GUIs"))
+                    }
                     GuiUtils.closeScreen()
                 }
                 if (funcConfig.value.type == "repeat") {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Spamming ${funcConfig.value.string} ${funcConfig.value.times} times"))
+                    }
                     repeat(funcConfig.value.times) {
                         GuiUtils.closeScreen()
                         Minecraft.getMinecraft().thePlayer.sendChatMessage(funcConfig.value.string)

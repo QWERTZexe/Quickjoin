@@ -51,6 +51,9 @@ class CommandEventHandler {
                     GuiUtils.displayScreen(QuickJoinGui())
                 } else {
                     if (HypixelUtils().isHypixel) {
+                        if (config.DebugMode) {
+                            Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying MainGui"))
+                        }
                         GuiUtils.displayScreen(QuickJoinGui())
                     }
                     else {

@@ -27,7 +27,7 @@ var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), a
 class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
     @Switch(name = "Bold Buttons",size = OptionSize.SINGLE)
-    var BoldSwitch: Boolean = false
+    var BoldSwitch: Boolean = true
     @Switch(name = "Colored Buttons", size = OptionSize.SINGLE)
     var ColorSwitch: Boolean = true
     @Switch(name = "Enable Command Alias", size = OptionSize.SINGLE)
@@ -38,6 +38,8 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
     var EnableKeyBind: Boolean = true
     @KeyBind(name = "Keybind", size = OptionSize.SINGLE)
     var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_X)
+    @Switch(name = "Debug Mode", size = OptionSize.SINGLE)
+    var DebugMode: Boolean = false
     fun loadConfig(): app.qwertz.quickjoin.gui.Config {
         try {
             val json = NetworkUtils.getJsonElement("https://raw.githubusercontent.com/QWERTZexe/Quickjoin/main/src/main/resources/assets/quickjoin/guis.json").asJsonObject
@@ -61,6 +63,9 @@ class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.
                     }
                 else {
                     if (HypixelUtils().isHypixel) {
+                        if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying MainGui"))
+                        }
                         GuiUtils.displayScreen(QuickJoinGui())
                     }
                     else {
