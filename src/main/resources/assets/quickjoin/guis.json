@@ -1770,8 +1770,8 @@
           "y": "centery - 24",
           "width": 85,
           "height": 20,
-          "label": "ALIEN ARCADIUM",
-          "colorCode": "§b"
+          "label": "PRISON",
+          "colorCode": "§6"
         },
         {
           "id": 4,
