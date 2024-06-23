@@ -1748,7 +1748,7 @@
         },
         {
           "id": 1,
-          "x": "centerx - 43",
+          "x": "centerx - 114",
           "y": "centery - 24",
           "width": 85,
           "height": 20,
@@ -1757,7 +1757,7 @@
         },
         {
           "id": 2,
-          "x": "centerx + 129",
+          "x": "centerx + 38",
           "y": "centery - 24",
           "width": 85,
           "height": 20,
@@ -1766,6 +1766,15 @@
         },
         {
           "id": 3,
+          "x": "centerx + 137",
+          "y": "centery - 24",
+          "width": 85,
+          "height": 20,
+          "label": "ALIEN ARCADIUM",
+          "colorCode": "§b"
+        },
+        {
+          "id": 4,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -1788,6 +1797,10 @@
           "string": "/play arcade_zombies_alien_arcadium"
         },
         "3": {
+          "type": "command",
+          "string": "/play arcade_zombies_prison"
+        },
+        "4": {
           "type": "opengui",
           "string": "ArcadeGui"
         }
