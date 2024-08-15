@@ -21,7 +21,7 @@ class QuickJoin {
 
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent?) {
-        config = app.qwertz.quickjoin.config.QuickJoinConfig()
+        config = app.qwertz.quickjoin.config.QuickJoinConfig
         MinecraftForge.EVENT_BUS.register(CommandEventHandler())
         ClientCommandHandler.instance.registerCommand(QuickJoinCommand())
     }

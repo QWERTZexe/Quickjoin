@@ -24,7 +24,7 @@ import net.minecraft.util.ChatComponentText
  */
 var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), app.qwertz.quickjoin.gui.Config::class.java)
 
-class QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
+object QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
 
     @Switch(name = "Bold Buttons",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = true
