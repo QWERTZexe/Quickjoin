@@ -2764,15 +2764,6 @@
         },
         {
           "id": 1,
-          "x": "centerx + 38",
-          "y": "centery - 52",
-          "width": 76,
-          "height": 20,
-          "label": "PTL",
-          "colorCode": "§b"
-        },
-        {
-          "id": 2,
           "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
@@ -2781,12 +2772,21 @@
           "colorCode": "§b"
         },
         {
-          "id": 3,
+          "id": 2,
           "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
           "label": "SHEEP WARS",
+          "colorCode": "§b"
+        },
+        {
+          "id": 3,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "CAPTURE THE WOOL",
           "colorCode": "§b"
         },
         {
@@ -2806,15 +2806,15 @@
         },
         "1": {
           "type": "command",
-          "string": "/lobby prototype"
+          "string": "/play wool_wool_wars_two_four"
         },
         "2": {
           "type": "command",
-          "string": "/play wool_wool_wars_two_four"
+          "string": "/play wool_sheep_wars_two_six"
         },
         "3": {
-          "type": "command",
-          "string": "/play prototype_sheepwars_two_six"
+          "type": "chat",
+          "string": "§4[§6§lQUICKJOIN§4]§a: This command has not been found - yet. If you found it make sure to open an issue on our github page!"
         },
         "4": {
           "type": "opengui",
