@@ -2764,7 +2764,7 @@
         },
         {
           "id": 1,
-          "x": "centerx - 114",
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2773,7 +2773,7 @@
         },
         {
           "id": 2,
-          "x": "centerx + 38",
+          "x": "centerx - 37",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2782,7 +2782,7 @@
         },
         {
           "id": 3,
-          "x": "centerx + 38",
+          "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
