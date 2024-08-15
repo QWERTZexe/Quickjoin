@@ -1621,8 +1621,8 @@
           "string": "/play arcade_day_one"
         },
         "6": {
-          "type": "command",
-          "string": "/play arcade_pvp_ctw"
+          "type": "opengui",
+          "string": "WoolGui"
         },
         "7": {
           "type": "command",
@@ -2755,7 +2755,7 @@
       "buttons": [
         {
           "id": 0,
-          "x": "centerx - 114",
+          "x": "centerx - 162",
           "y": "centery - 52",
           "width": 76,
           "height": 20,
