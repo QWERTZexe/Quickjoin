@@ -181,12 +181,21 @@
         },
         {
           "id": 11,
-          "x": "centerx - 162",
-          "y": "centery - 52",
+          "x": "centerx - 201",
+          "y": "centery + 60",
           "width": 76,
           "height": 20,
           "label": "WOOL GAMES",
           "colorCode": "§2"
+        },
+        {
+          "id": 21,
+          "x": "centerx - 162",
+          "y": "centery - 52",
+          "width": 76,
+          "height": 20,
+          "label": "DISASTERS",
+          "colorCode": "§b"
         },
         {
           "id": 12,
@@ -282,6 +291,10 @@
         "20": {
           "type": "command",
           "string": "/lobby main"
+        },
+        "21": {
+          "type": "command",
+          "string": "/play prototype_disasters"
         }
       }
     },
@@ -2286,7 +2299,7 @@
         },
         {
           "id": 5,
-          "x": "centerx - 114",
+          "x": "centerx + 38",
           "y": "centery + 4",
           "width": 76,
           "height": 20,
