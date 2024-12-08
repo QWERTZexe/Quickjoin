@@ -17,11 +17,9 @@ tasks.withType<Jar> {
 // which we use to prepare the environment.
 plugins {
     kotlin("jvm")
-    id("org.polyfrost.multi-version")
     val egtVersion = "0.3.0" // should be whatever is displayed in above badge
     id("org.polyfrost.defaults.repo")
     id("org.polyfrost.defaults.java")
-    id("org.polyfrost.defaults.loom")
     id("com.github.johnrengelman.shadow")
     id("net.kyori.blossom") version "1.3.1"
     id("signing")

@@ -2241,7 +2241,7 @@
       "buttons": [
         {
           "id": 0,
-          "x": "centerx - 213",
+          "x": "centerx - 162",
           "y": "centery - 52",
           "width": 76,
           "height": 20,
@@ -2250,7 +2250,7 @@
         },
         {
           "id": 1,
-          "x": "centerx - 213",
+          "x": "centerx - 162",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2259,7 +2259,7 @@
         },
         {
           "id": 2,
-          "x": "centerx - 114",
+          "x": "centerx - 38",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2268,7 +2268,7 @@
         },
         {
           "id": 3,
-          "x": "centerx + 38",
+          "x": "centerx + 88",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2277,15 +2277,24 @@
         },
         {
           "id": 4,
-          "x": "centerx + 137",
-          "y": "centery - 24",
+          "x": "centerx - 114",
+          "y": "centery + 4",
           "width": 76,
           "height": 20,
           "label": "GTB",
-          "colorCode": "§b"
+          "colorCode": "§d"
         },
         {
           "id": 5,
+          "x": "centerx - 114",
+          "y": "centery + 4",
+          "width": 76,
+          "height": 20,
+          "label": "SPEED BUILDERS",
+          "colorCode": "§d"
+        },
+        {
+          "id": 6,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2316,6 +2325,10 @@
           "string": "/play build_battle_guess_the_build"
         },
         "5": {
+          "type": "command",
+          "string": "/play build_battle_speed_builders"
+        },
+        "6": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
