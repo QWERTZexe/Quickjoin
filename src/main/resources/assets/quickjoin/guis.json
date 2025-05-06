@@ -623,7 +623,7 @@
           "y": "centery - 24",
           "width": 76,
           "height": 20,
-          "label": "INSANE SOLO",
+          "label": "INSANE",
           "colorCode": "§4"
         },
         {
@@ -632,29 +632,20 @@
           "y": "centery - 24",
           "width": 76,
           "height": 20,
-          "label": "INSANE 2s",
-          "colorCode": "§4"
+          "label": "MINI",
+          "colorCode": "§d"
         },
         {
           "id": 5,
-          "x": "centerx - 213",
+          "x": "centerx - 164",
           "y": "centery + 4",
           "width": 76,
           "height": 20,
-          "label": "MEGA SOLO",
+          "label": "MEGA",
           "colorCode": "§6"
         },
         {
           "id": 6,
-          "x": "centerx - 114",
-          "y": "centery + 4",
-          "width": 76,
-          "height": 20,
-          "label": "MEGA 2s",
-          "colorCode": "§6"
-        },
-        {
-          "id": 7,
           "x": "centerx + 87",
           "y": "centery + 4",
           "width": 76,
@@ -663,7 +654,7 @@
           "colorCode": "§2"
         },
         {
-          "id": 8,
+          "id": 7,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -691,21 +682,17 @@
         },
         "4": {
           "type": "command",
-          "string": "/play teams_insane"
+          "string": "/play mini_normal"
         },
         "5": {
           "type": "command",
-          "string": "/play mega_normal"
-        },
-        "6": {
-          "type": "command",
           "string": "/play mega_doubles"
         },
-        "7": {
+        "6": {
           "type": "opengui",
           "string": "SkyWarsLabGui"
         },
-        "8": {
+        "7": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
