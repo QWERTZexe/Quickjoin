@@ -2173,7 +2173,7 @@
         },
         {
           "id": 1,
-          "x": "centerx - 162",
+          "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2182,7 +2182,7 @@
         },
         {
           "id": 2,
-          "x": "centerx - 37",
+          "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2191,15 +2191,6 @@
         },
         {
           "id": 3,
-          "x": "centerx + 88",
-          "y": "centery - 24",
-          "width": 76,
-          "height": 20,
-          "label": "CHALLENGE",
-          "colorCode": "§b"
-        },
-        {
-          "id": 4,
           "x": "centerx - 25",
           "y": "centery + 100",
           "width": 50,
@@ -2222,10 +2213,6 @@
           "string": "/play mw_standard"
         },
         "3": {
-          "type": "chat",
-          "string": "§4[§6§lQUICKJOIN§4]§a: This command has not been found - yet. If you found it make sure to open an issue on our github page!"
-        },
-        "4": {
           "type": "opengui",
           "string": "QuickJoinGui"
         }
