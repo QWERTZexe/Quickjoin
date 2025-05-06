@@ -2164,7 +2164,7 @@
       "buttons": [
         {
           "id": 0,
-          "x": "centerx - 162",
+          "x": "centerx - 114",
           "y": "centery - 52",
           "width": 76,
           "height": 20,
@@ -2173,7 +2173,7 @@
         },
         {
           "id": 1,
-          "x": "centerx - 114",
+          "x": "centerx + 38",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
@@ -2182,7 +2182,7 @@
         },
         {
           "id": 2,
-          "x": "centerx + 38",
+          "x": "centerx - 114",
           "y": "centery - 24",
           "width": 76,
           "height": 20,
