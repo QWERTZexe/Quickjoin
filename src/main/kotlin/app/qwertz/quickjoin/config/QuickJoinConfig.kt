@@ -1,8 +1,11 @@
 package app.qwertz.quickjoin.config
 import app.qwertz.quickjoin.QuickJoin
 import app.qwertz.quickjoin.fallback.getJsonFallback
+import app.qwertz.quickjoin.gui.FavoritesGui
 import app.qwertz.quickjoin.gui.QuickJoinGui
+import app.qwertz.quickjoin.gui.SearchGui
 import cc.polyfrost.oneconfig.config.Config
+import cc.polyfrost.oneconfig.config.annotations.Header
 import cc.polyfrost.oneconfig.config.annotations.KeyBind
 import cc.polyfrost.oneconfig.config.annotations.Switch
 import cc.polyfrost.oneconfig.config.annotations.Text
@@ -25,11 +28,14 @@ import net.minecraft.util.ChatComponentText
 var guis: app.qwertz.quickjoin.gui.Config = Gson().fromJson(getJsonFallback(), app.qwertz.quickjoin.gui.Config::class.java)
 
 object QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin.png"), QuickJoin.MODID + ".json") {
-
+    @Header(text = "Design", size = OptionSize.DUAL)
+    var abc: Boolean = false
     @Switch(name = "Bold Buttons",size = OptionSize.SINGLE)
     var BoldSwitch: Boolean = true
     @Switch(name = "Colored Buttons", size = OptionSize.SINGLE)
     var ColorSwitch: Boolean = true
+    @Header(text = "Accessibility", size = OptionSize.DUAL)
+    var abc2: Boolean = false
     @Switch(name = "Enable Command Alias", size = OptionSize.SINGLE)
     var EnableAlias: Boolean = true
     @Text(name = "Command Alias",size = OptionSize.SINGLE)
@@ -38,7 +44,18 @@ object QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin
     var EnableKeyBind: Boolean = true
     @KeyBind(name = "Keybind", size = OptionSize.SINGLE)
     var QJKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_X)
-    @Switch(name = "Debug Mode", size = OptionSize.SINGLE)
+    @Header(text = "Favourites", size = OptionSize.DUAL)
+    var abc3: Boolean = false
+    @Switch(name = "Enable Favorites", size = OptionSize.SINGLE)
+    var EnableFavorites: Boolean = true
+    @KeyBind(name = "Favorites Keybind", size = OptionSize.SINGLE)
+    var FavoritesKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_C)
+    @Header(text = "Miscellaneous", size = OptionSize.DUAL)
+    var abc4: Boolean = false
+
+    @KeyBind(name = "Search Keybind", size = OptionSize.SINGLE)
+    var SearchKeyBind: OneKeyBind = OneKeyBind(UKeyboard.KEY_V)
+    @Switch(name = "Debug Mode", size = OptionSize.DUAL )
     var DebugMode: Boolean = false
     fun loadConfig(): app.qwertz.quickjoin.gui.Config {
         try {
@@ -71,6 +88,39 @@ object QuickJoinConfig : Config(Mod(QuickJoin.NAME, ModType.HYPIXEL, "/QuickJoin
                     else {
                         Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."))
                     }
+                }
+            }
+        }
+
+        // Favorites keybind via OneConfig
+        registerKeyBind(FavoritesKeyBind) {
+            if (!config.EnableFavorites) return@registerKeyBind
+            if (!config.enabled) {
+                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
+            } else {
+                if (HypixelUtils().isHypixel) {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying Favorites"))
+                    }
+                    GuiUtils.displayScreen(FavoritesGui())
+                } else {
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."))
+                }
+            }
+        }
+
+        // Search keybind via OneConfig
+        registerKeyBind(SearchKeyBind) {
+            if (!config.enabled) {
+                Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in OneConfig. Please enable it."))
+            } else {
+                if (HypixelUtils().isHypixel) {
+                    if (config.DebugMode) {
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Displaying Search"))
+                    }
+                    GuiUtils.displayScreen(SearchGui())
+                } else {
+                    Minecraft.getMinecraft().thePlayer.addChatMessage(ChatComponentText("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."))
                 }
             }
         }

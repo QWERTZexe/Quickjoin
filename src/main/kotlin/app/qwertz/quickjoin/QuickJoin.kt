@@ -1,6 +1,7 @@
 package app.qwertz.quickjoin
 
 import app.qwertz.quickjoin.QuickJoin.Companion.config
+import app.qwertz.quickjoin.favorites.FavoritesManager
 import app.qwertz.quickjoin.command.IsEnabled
 import app.qwertz.quickjoin.command.QuickJoinCommand
 import app.qwertz.quickjoin.gui.QuickJoinGui
@@ -24,6 +25,8 @@ class QuickJoin {
         config = app.qwertz.quickjoin.config.QuickJoinConfig
         MinecraftForge.EVENT_BUS.register(CommandEventHandler())
         ClientCommandHandler.instance.registerCommand(QuickJoinCommand())
+        // Initialize favorites and keybinds
+        FavoritesManager.initialize()
     }
     companion object {
         const val MODID: String = "@ID@"

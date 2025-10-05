@@ -1,6 +1,8 @@
 package app.qwertz.quickjoin.gui
 import app.qwertz.quickjoin.QuickJoin.Companion.config
 import app.qwertz.quickjoin.config.guis
+import app.qwertz.quickjoin.favorites.FavoritesManager
+import app.qwertz.quickjoin.config.QuickJoinConfig
 import cc.polyfrost.oneconfig.utils.gui.GuiUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiButton
@@ -84,7 +86,9 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
     override fun initGui() {
         this.buttonList.clear()
         bconfig.guis[guiname]?.buttons?.forEach { buttonConfig ->
-            val label = "${buttonConfig.colorCode}$color$bold${buttonConfig.label}"
+            val isFav = QuickJoinConfig.EnableFavorites && FavoritesManager.isFavorite(guiname, buttonConfig.id)
+            val star = if (isFav) "✮ " else ""
+            val label = "$star${buttonConfig.colorCode}$color$bold${buttonConfig.label}"
             val resultx = evaluateExpression(buttonConfig.x)
             val resulty = evaluateExpression(buttonConfig.y)
             if (config.DebugMode) {
@@ -93,6 +97,20 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
             this.buttonList.add(GuiButton(buttonConfig.id, resultx.toInt(), resulty.toInt(), buttonConfig.width, buttonConfig.height, label))
 
 
+        }
+
+        // Add a quick access Favorites button on the main GUI
+        if (guiname == "QuickJoinGui") {
+            val topY = 8
+            val rightX = this.width - 90
+            if (QuickJoinConfig.EnableFavorites) {
+                // Favorites on the far right, Search next to it on the left
+                this.buttonList.add(GuiButton(7000, rightX, topY, 80, 20, "§6§lFavorites"))
+                this.buttonList.add(GuiButton(7001, this.width - 180, topY, 80, 20, "§a§lSearch"))
+            } else {
+                // If favorites are disabled, put Search in the far right spot
+                this.buttonList.add(GuiButton(7001, rightX, topY, 80, 20, "§a§lSearch"))
+            }
         }
 
 
@@ -108,7 +126,42 @@ class QuickJoinGui(val guiname: String="QuickJoinGui") : GuiScreen() {
 
 
     }
+    override fun mouseClicked(mouseX: Int, mouseY: Int, mouseButton: Int) {
+        if (mouseButton == 1 && QuickJoinConfig.EnableFavorites) { // Right click toggles favorite on the button under cursor
+            for (btn in buttonList) {
+                if (btn.id >= 0 && btn.mousePressed(mc, mouseX, mouseY)) {
+                    val func = bconfig.guis[guiname]?.funcs?.get(btn.id.toString())
+                    if (func == null || func.type == "opengui") {
+                        if (config.DebugMode) {
+                            Minecraft.getMinecraft().thePlayer.addChatMessage(
+                                ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: Favorites are only for playable entries, not categories.")
+                            )
+                        }
+                        return
+                    }
+                    val added = FavoritesManager.toggleFavorite(guiname, btn.id)
+                    if (config.DebugMode) {
+                        val state = if (added) "added to" else "removed from"
+                        Minecraft.getMinecraft().thePlayer.addChatMessage(
+                            ChatComponentText("§4[§6§lQUICKJOIN-DEBUG§4]§a: $state favorites: $guiname#${btn.id}")
+                        )
+                    }
+                    initGui() // refresh stars
+                    return
+                }
+            }
+        }
+        super.mouseClicked(mouseX, mouseY, mouseButton)
+    }
     override fun actionPerformed(button: GuiButton) {
+        if (button.id == 7000) {
+            GuiUtils.displayScreen(FavoritesGui())
+            return
+        }
+        if (button.id == 7001) {
+            GuiUtils.displayScreen(SearchGui())
+            return
+        }
         val buttonpressedid = button.id.toString()
         bconfig.guis[guiname]?.funcs?.forEach { funcConfig ->
             if (funcConfig.key == buttonpressedid) {
