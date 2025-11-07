@@ -514,11 +514,20 @@
         },
         {
           "id": 10,
-          "x": "centerx + 87",
+          "x": "centerx + 38",
           "y": "centery + 32",
           "width": 76,
           "height": 20,
           "label": "CASTLE",
+          "colorCode": "§b"
+        },
+        {
+          "id": 12,
+          "x": "centerx + 137",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "ONEBLOCK",
           "colorCode": "§b"
         },
         {
@@ -579,6 +588,10 @@
         "11": {
           "type": "opengui",
           "string": "BedWarsGui"
+        },
+        "10": {
+          "type": "command",
+          "string": "/play bedwars_eight_one_oneblock"
         }
       }
     },
@@ -897,18 +910,27 @@
           "id": 5,
           "x": "centerx - 213",
           "y": "centery + 4",
-          "width": 76,
+          "width": 51,
           "height": 20,
           "label": "PARKOUR",
           "colorCode": "§a"
         },
         {
           "id": 6,
-          "x": "centerx - 114",
+          "x": "centerx - 150",
           "y": "centery + 4",
-          "width": 76,
+          "width": 51,
           "height": 20,
           "label": "NO DEBUFF",
+          "colorCode": "§a"
+        },
+        {
+          "id": 17,
+          "x": "centerx - 88",
+          "y": "centery + 32",
+          "width": 51,
+          "height": 20,
+          "label": "QUAKE",
           "colorCode": "§a"
         },
         {
@@ -933,27 +955,45 @@
           "id": 9,
           "x": "centerx - 213",
           "y": "centery + 32",
-          "width": 76,
+          "width": 51,
           "height": 20,
           "label": "BLITZ",
           "colorCode": "§a"
         },
         {
           "id": 10,
-          "x": "centerx - 114",
+          "x": "centerx - 150",
           "y": "centery + 32",
-          "width": 76,
+          "width": 51,
           "height": 20,
           "label": "COMBO",
           "colorCode": "§a"
         },
         {
+          "id": 16,
+          "x": "centerx - 88",
+          "y": "centery + 32",
+          "width": 51,
+          "height": 20,
+          "label": "SPLEEF",
+          "colorCode": "§a"
+        },
+        {
           "id": 11,
-          "x": "centerx + 88",
+          "x": "centerx + 38",
           "y": "centery + 32",
           "width": 76,
           "height": 20,
           "label": "OP",
+          "colorCode": "§4"
+        },
+        {
+          "id": 18,
+          "x": "centerx + 137",
+          "y": "centery + 32",
+          "width": 76,
+          "height": 20,
+          "label": "BEDWARS",
           "colorCode": "§4"
         },
         {
@@ -1057,6 +1097,18 @@
         "15": {
           "type": "opengui",
           "string": "QuickJoinGui"
+        },
+        "16": {
+          "type": "command",
+          "string": "/play duels_spleef_duel"
+        },
+        "17": {
+          "type": "command",
+          "string": "/play duels_quake_duel"
+        },
+        "18": {
+          "type": "opengui",
+          "string": "DuelsBedWarsGui"
         }
       }
     },
@@ -1156,33 +1208,6 @@
           "colorCode": "§b"
         },
         {
-          "id": 4,
-          "x": "centerx - 213",
-          "y": "centery + 24",
-          "width": 85,
-          "height": 20,
-          "label": "BRIDGE 2v2v2v2",
-          "colorCode": "§4"
-        },
-        {
-          "id": 5,
-          "x": "centerx + 129",
-          "y": "centery + 24",
-          "width": 85,
-          "height": 20,
-          "label": "BRIDGE 3v3v3v3",
-          "colorCode": "§4"
-        },
-        {
-          "id": 6,
-          "x": "centerx - 43",
-          "y": "centery + 24",
-          "width": 85,
-          "height": 20,
-          "label": "BRIDGE CTF 3v3",
-          "colorCode": "§1"
-        },
-        {
           "id": 7,
           "x": "centerx - 25",
           "y": "centery + 100",
@@ -1208,18 +1233,6 @@
         "3": {
           "type": "command",
           "string": "/play duels_bridge_four"
-        },
-        "4": {
-          "type": "command",
-          "string": "/play duels_bridge_2v2v2v2"
-        },
-        "5": {
-          "type": "command",
-          "string": "/play duels_bridge_3v3v3v3"
-        },
-        "6": {
-          "type": "command",
-          "string": "/play duels_capture_threes"
         },
         "7": {
           "type": "opengui",
@@ -1271,6 +1284,57 @@
         "1": {
           "type": "command",
           "string": "/play duels_sw_doubles"
+        },
+        "2": {
+          "type": "opengui",
+          "string": "DuelsGui"
+        }
+      }
+    },
+    "DuelsBedWarsGui": {
+      "name": "DUELS - BEDWARS",
+      "icon": {
+        "sheet": 1,
+        "textureX": 0,
+        "textureY": 76
+      },
+      "buttons": [
+        {
+          "id": 0,
+          "x": "centerx - 114",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BEDWARS DUEL",
+          "colorCode": "§b"
+        },
+        {
+          "id": 1,
+          "x": "centerx + 38",
+          "y": "centery - 24",
+          "width": 76,
+          "height": 20,
+          "label": "BEDRUSH",
+          "colorCode": "§b"
+        },
+        {
+          "id": 2,
+          "x": "centerx - 25",
+          "y": "centery + 100",
+          "width": 50,
+          "height": 20,
+          "label": "BACK",
+          "colorCode": "§c"
+        }
+      ],
+      "funcs": {
+        "0": {
+          "type": "command",
+          "string": "/play bedwars_two_one_duels"
+        },
+        "1": {
+          "type": "command",
+          "string": "/play bedwars_two_one_duels_rush"
         },
         "2": {
           "type": "opengui",
