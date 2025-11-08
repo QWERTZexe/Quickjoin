@@ -589,7 +589,7 @@
           "type": "opengui",
           "string": "BedWarsGui"
         },
-        "10": {
+        "12": {
           "type": "command",
           "string": "/play bedwars_eight_one_oneblock"
         }
@@ -927,7 +927,7 @@
         {
           "id": 17,
           "x": "centerx - 88",
-          "y": "centery + 32",
+          "y": "centery + 4",
           "width": 51,
           "height": 20,
           "label": "QUAKE",
