@@ -1,0 +1,5 @@
+plugins {
+    // Root project does not build an artifact; module builds provide their own configuration.
+}
+
+// Shared repository configuration if needed in future modules can be added here.

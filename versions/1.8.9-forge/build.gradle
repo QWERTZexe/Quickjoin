@@ -1,0 +1,197 @@
+import org.gradle.api.tasks.Copy
+import org.gradle.api.tasks.bundling.Jar
+import org.gradle.language.jvm.tasks.ProcessResources
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
+plugins {
+    id 'org.polyfrost.multi-version'
+    id 'org.polyfrost.defaults.repo'
+    id 'org.polyfrost.defaults.java'
+    id 'org.polyfrost.defaults.loom'
+    id 'com.github.johnrengelman.shadow'
+    id 'net.kyori.blossom' version '1.3.2'
+    id 'signing'
+    id 'java'
+}
+
+evaluationDependsOn(':common')
+
+tasks.withType(Copy).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+def mod_name = project.property('mod_name') as String
+
+def mod_version = project.property('mod_version') as String
+
+def mod_id = project.property('mod_id') as String
+
+def mod_archives_name = project.property('mod_archives_name') as String
+
+preprocess {
+    vars.put('MODERN', platform.mcMinor >= 16 ? 1 : 0)
+}
+
+blossom {
+    replaceToken '@VER@', mod_version
+    replaceToken '@NAME@', mod_name
+    replaceToken '@ID@', mod_id
+}
+
+version = mod_version
+group = 'app.qwertz'
+
+base {
+    archivesName = "${mod_archives_name}-${platform}"
+}
+
+loom {
+    if (project.platform.isLegacyForge) {
+        runConfigs {
+            client {
+                programArgs '--tweakClass', 'cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker'
+                property 'mixin.debug.export', 'true'
+            }
+        }
+    }
+
+    if (project.platform.isForge) {
+        forge {
+            mixinConfig "mixins.${mod_id}.json"
+        }
+    }
+
+    mixin.defaultRefmapName.set("mixins.${mod_id}.refmap.json")
+}
+
+configurations {
+    shade
+    modShade
+}
+
+configurations.implementation.extendsFrom configurations.shade
+configurations.modImplementation.extendsFrom configurations.modShade
+
+sourceSets {
+    main {
+        java.srcDirs = ['src/main/java']
+        resources.srcDirs = ['src/main/resources']
+        output.resourcesDir = java.destinationDirectory.asFile.get()
+    }
+}
+
+repositories {
+    maven { url 'https://repo.polyfrost.org/releases' }
+    maven { url 'https://repo.essential.gg/repository/maven-public' }
+}
+
+dependencies {
+    implementation project(':common')
+    modCompileOnly "cc.polyfrost:oneconfig-${platform}:0.2.2-alpha+"
+
+    modRuntimeOnly "me.djtheredstoner:DevAuth-${platform.isFabric ? 'fabric' : (platform.isLegacyForge ? 'forge-legacy' : 'forge-latest')}:1.2.0"
+
+    if (platform.isLegacyForge) {
+        compileOnly 'org.spongepowered:mixin:0.7.11-SNAPSHOT'
+        add('shade', 'cc.polyfrost:oneconfig-wrapper-launchwrapper:1.0.0-beta+')
+    }
+}
+
+tasks.named('processResources', ProcessResources) {
+    inputs.property 'id', mod_id
+    inputs.property 'name', mod_name
+
+    def javaVersion = platform.mcMinor >= 18 ? 17 : (platform.mcMinor == 17 ? 16 : 8)
+    def compatLevel = "JAVA_${javaVersion}".toString()
+
+    inputs.property 'java', javaVersion
+    inputs.property 'java_level', compatLevel
+    inputs.property 'version', mod_version
+    def mcVersionStr = platform.mcVersionStr.toString()
+    inputs.property 'mcVersionStr', mcVersionStr
+
+    def mixinConfigFile = "mixins.${mod_id}.json".toString()
+
+    filesMatching(['mcmod.info', mixinConfigFile, 'mods.toml']) {
+        expand([
+            id           : mod_id,
+            name         : mod_name,
+            java         : javaVersion,
+            java_level   : compatLevel,
+            version      : mod_version,
+            mcVersionStr : mcVersionStr
+        ])
+    }
+
+    filesMatching('fabric.mod.json') {
+        def fabricMcVersion = "${mcVersionStr.substring(0, mcVersionStr.lastIndexOf('.'))}.x".toString()
+        expand([
+            id           : mod_id,
+            name         : mod_name,
+            java         : javaVersion,
+            java_level   : compatLevel,
+            version      : mod_version,
+            mcVersionStr : fabricMcVersion
+        ])
+    }
+
+    inputs.property 'mcversion', '1.8.9'
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+tasks.withType(Jar).configureEach {
+    if (platform.isFabric) {
+        exclude 'mcmod.info', 'mods.toml'
+    } else {
+        exclude 'fabric.mod.json'
+        if (platform.isLegacyForge) {
+            exclude 'mods.toml'
+        } else {
+            exclude 'mcmod.info'
+        }
+    }
+}
+
+tasks.named('shadowJar', ShadowJar) {
+    archiveClassifier.set('dev')
+    from sourceSets.main.output
+    from project(':common').sourceSets.main.output
+    configurations = [project.configurations.getByName('shade')]
+    dependencies {
+        include(dependency('cc.polyfrost:oneconfig-wrapper-launchwrapper'))
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('remapJar') {
+    dependsOn tasks.named('shadowJar')
+    inputFile.set(tasks.named('shadowJar').get().archiveFile)
+    archiveClassifier.set('')
+}
+
+tasks.named('jar') {
+    if (platform.isLegacyForge) {
+        def mixinConfigManifest = "mixins.${mod_id}.json".toString()
+        manifest.attributes(
+            'ModSide'      : 'CLIENT',
+            'ForceLoadAsMod': true,
+            'TweakOrder'   : '0',
+            'MixinConfigs' : mixinConfigManifest,
+            'TweakClass'   : 'cc.polyfrost.oneconfig.loader.stage0.LaunchWrapperTweaker'
+        )
+    }
+    dependsOn tasks.named('shadowJar')
+    archiveClassifier.set('')
+    enabled = false
+}

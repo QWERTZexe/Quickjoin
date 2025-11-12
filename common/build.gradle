@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'app.qwertz.quickjoin'
+version = project.findProperty('mod_version') ?: 'unspecified'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api 'com.google.code.gson:gson:2.8.9'
+}
+

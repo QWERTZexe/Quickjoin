@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url 'https://maven.fabricmc.net/' }
+        maven { url 'https://repo.polyfrost.org/releases' }
+    }
+    plugins {
+        def pgtVersion = '0.6.5'
+        id('org.polyfrost.multi-version.root') version pgtVersion
+    }
+}
+
+def modName = settings.ext.get('mod_name')
+
+rootProject.name = modName
+rootProject.buildFileName = 'root.gradle'
+
+include ':common', ':1.8.9-forge', ':1.21.8-fabric'
+project(':common').projectDir = file('common')
+project(':1.8.9-forge').projectDir = file('versions/1.8.9-forge')
+project(':1.21.8-fabric').projectDir = file('versions/1.21.8-fabric')

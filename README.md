@@ -22,3 +22,5 @@ For all images, have a look in [images](https://github.com/QWERTZexe/Quickjoin/t
 ![Config](https://github.com/QWERTZexe/Quickjoin/blob/main/images/Config.png?raw=true)
 ![BedWarsGui](https://github.com/QWERTZexe/Quickjoin/blob/main/images/BedWarsGui.png?raw=true)
 ![ClassicGui](https://github.com/QWERTZexe/Quickjoin/blob/main/images/ClassicGui.png?raw=true)
+
+Not affiliated with Mojang AB
