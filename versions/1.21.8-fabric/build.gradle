@@ -1,7 +1,7 @@
 import org.gradle.language.jvm.tasks.ProcessResources
 
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
     id 'java'
 }
 
@@ -36,7 +36,7 @@ dependencies {
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.105.3+1.21.1'
     implementation project(':common')
- //   modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+    modImplementation("com.terraformersmc:modmenu:15.0.0")
     modImplementation "dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric"
 }
 

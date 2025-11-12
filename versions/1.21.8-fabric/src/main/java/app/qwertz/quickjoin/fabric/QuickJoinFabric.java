@@ -203,6 +203,10 @@ public class QuickJoinFabric implements ClientModInitializer {
         client.execute(() -> client.setScreen(QuickJoinConfig.createConfigScreen(parent)));
     }
 
+    public static Screen getConfigScreen(Screen parent) {
+        return QuickJoinConfig.createConfigScreen(parent);
+    }
+
     private static void scheduleScreen(Supplier<Screen> supplier) {
         pendingScreen = supplier;
     }

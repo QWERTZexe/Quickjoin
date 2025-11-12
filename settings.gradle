@@ -6,7 +6,7 @@ pluginManagement {
         maven { url 'https://repo.polyfrost.org/releases' }
     }
     plugins {
-        def pgtVersion = '0.6.5'
+        def pgtVersion = '0.6.8'
         id('org.polyfrost.multi-version.root') version pgtVersion
     }
 }

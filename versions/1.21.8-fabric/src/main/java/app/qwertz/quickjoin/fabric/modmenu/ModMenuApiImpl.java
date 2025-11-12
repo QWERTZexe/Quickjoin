@@ -1,4 +1,12 @@
 package app.qwertz.quickjoin.fabric.modmenu;
 
-public class ModMenuApiImpl {
+import app.qwertz.quickjoin.fabric.QuickJoinFabric;
+import com.terraformersmc.modmenu.api.ConfigScreenFactory;
+import net.minecraft.client.gui.screen.Screen;
+
+public class ModMenuApiImpl implements com.terraformersmc.modmenu.api.ModMenuApi {
+    @Override
+    public ConfigScreenFactory<?> getModConfigScreenFactory() {
+        return QuickJoinFabric::getConfigScreen;
+    }
 }
