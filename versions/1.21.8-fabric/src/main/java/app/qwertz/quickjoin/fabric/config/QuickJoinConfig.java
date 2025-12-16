@@ -36,7 +36,7 @@ public final class QuickJoinConfig {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("quickjoin-fabric.json");
-    private static final String REMOTE_GUI_URL = "https://raw.githubusercontent.com/QWERTZexe/Quickjoin/main/src/main/resources/assets/quickjoin/guis.json";
+    private static final String REMOTE_GUI_URL = "https://raw.githubusercontent.com/QWERTZexe/Quickjoin/main/common/src/main/resources/assets/quickjoin/guis.json";
 
     private static Data data = new Data();
     private static Config guiLayout;
