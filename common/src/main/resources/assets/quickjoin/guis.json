@@ -1660,7 +1660,7 @@
         },
         {
           "id": 20,
-          "x": "centerx + 125"
+          "x": "centerx + 125",
           "y": "centery - 80",
           "width": 76,
           "height": 20,
