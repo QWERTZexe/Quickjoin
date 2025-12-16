@@ -194,8 +194,8 @@
           "y": "centery - 52",
           "width": 76,
           "height": 20,
-          "label": "DISASTERS",
-          "colorCode": "§b"
+          "label": "RAVENGARD",
+          "colorCode": "§4"
         },
         {
           "id": 12,
@@ -294,7 +294,7 @@
         },
         "21": {
           "type": "command",
-          "string": "/play prototype_disasters"
+          "string": "/play prototype_ravengard"
         }
       }
     },
@@ -1657,7 +1657,16 @@
           "height": 20,
           "label": "BACK",
           "colorCode": "§c"
-        }
+        },
+        {
+          "id": 20,
+          "x": "centerx + 125"
+          "y": "centery - 80",
+          "width": 76,
+          "height": 20,
+          "label": "DISASTERS",
+          "colorCode": "§b"
+        },
       ],
       "funcs": {
         "0": {
@@ -1739,7 +1748,11 @@
         "19": {
           "type": "opengui",
           "string": "QuickJoinGui"
-        }
+        },
+        "20": {
+          "type": "command",
+          "string": "/play arcade_disasters"
+        },
       }
     },
     "ArcadeHideAndSeekGui": {
