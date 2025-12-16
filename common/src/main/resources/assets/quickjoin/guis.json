@@ -1666,7 +1666,7 @@
           "height": 20,
           "label": "DISASTERS",
           "colorCode": "§b"
-        },
+        }
       ],
       "funcs": {
         "0": {
@@ -1752,7 +1752,7 @@
         "20": {
           "type": "command",
           "string": "/play arcade_disasters"
-        },
+        }
       }
     },
     "ArcadeHideAndSeekGui": {
