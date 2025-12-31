@@ -101,7 +101,7 @@ public class QuickJoinGui extends GuiScreen {
         super.drawScreen(mouseX, mouseY, partialTicks);
 
         ResourceLocation texture = new ResourceLocation("quickjoin",
-                "Icon" + guiConfig.guis.get(guiname).icon.sheet + ".png");
+                "icon" + guiConfig.guis.get(guiname).icon.sheet + ".png");
         mc.getTextureManager().bindTexture(texture);
         GlStateManager.color(1f, 1f, 1f, 1f);
         drawTexturedModalRect(this.width / 2 - 38, this.height / 2 - 125,
