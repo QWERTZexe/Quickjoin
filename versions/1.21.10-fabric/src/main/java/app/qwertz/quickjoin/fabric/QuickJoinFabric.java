@@ -17,14 +17,16 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.Text;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.KeyMapping;
+import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import org.lwjgl.glfw.GLFW;
 
 import java.lang.reflect.Field;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -33,13 +35,14 @@ public class QuickJoinFabric implements ClientModInitializer {
 
     public static final String MOD_ID = "quickjoin";
 
-    private static KeyBinding openKey;
-    private static KeyBinding favoritesKey;
-    private static KeyBinding searchKey;
+    private static KeyMapping openKey;
+    private static KeyMapping favoritesKey;
+    private static KeyMapping searchKey;
     private static Supplier<Screen> pendingScreen;
     private static CommandDispatcher<FabricClientCommandSource> commandDispatcher;
     private static LiteralCommandNode<FabricClientCommandSource> aliasNode;
-
+    private static KeyMapping keyBinding;
+    private static final KeyMapping.Category QUICKJOIN_KEYMAPPING = KeyMapping.Category.register(ResourceLocation.fromNamespaceAndPath("quickjoin", "general"));
     @Override
     public void onInitializeClient() {
         QuickJoinConfig.init();
@@ -49,25 +52,24 @@ public class QuickJoinFabric implements ClientModInitializer {
         registerCommands();
         registerTickHandler();
     }
-
     private void registerKeyBindings() {
-        openKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        openKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.quickjoin.open",
-                InputUtil.Type.KEYSYM,
+                InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_X,
-                "category.quickjoin"
+                QUICKJOIN_KEYMAPPING
         ));
-        favoritesKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        favoritesKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.quickjoin.favorites",
-                InputUtil.Type.KEYSYM,
+                InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_C,
-                "category.quickjoin"
+                QUICKJOIN_KEYMAPPING
         ));
-        searchKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        searchKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.quickjoin.search",
-                InputUtil.Type.KEYSYM,
+                InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_V,
-                "category.quickjoin"
+                QUICKJOIN_KEYMAPPING
         ));
     }
 
@@ -119,14 +121,14 @@ public class QuickJoinFabric implements ClientModInitializer {
     }
 
     private static int executeOpenQuickJoin(FabricClientCommandSource source) {
-        MinecraftClient client = source.getClient();
+        Minecraft client = source.getClient();
         if (client == null) {
-            source.sendFeedback(Text.literal("QuickJoin: client unavailable."));
+            source.sendFeedback(Component.literal("QuickJoin: client unavailable."));
             return Command.SINGLE_SUCCESS;
         }
         client.execute(() -> {
             if (!openMainScreen(client)) {
-                source.sendFeedback(Text.literal("QuickJoin: command cancelled."));
+                source.sendFeedback(Component.literal("QuickJoin: command cancelled."));
             }
         });
         return Command.SINGLE_SUCCESS;
@@ -136,37 +138,37 @@ public class QuickJoinFabric implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.player == null) return;
 
-            if (pendingScreen != null && client.currentScreen == null) {
+            if (pendingScreen != null && client.screen == null) {
                 Screen next = pendingScreen.get();
                 pendingScreen = null;
                 client.setScreen(next);
             }
 
-            while (openKey.wasPressed()) {
+            while (openKey.consumeClick()) {
                 if (QuickJoinConfig.enableKeybind()) {
                     openMainScreen(client);
                 }
             }
 
-            while (favoritesKey.wasPressed()) {
+            while (favoritesKey.consumeClick()) {
                 if (QuickJoinConfig.enableFavorites()) {
                     openFavoritesScreen(client);
                 }
             }
 
-            while (searchKey.wasPressed()) {
+            while (searchKey.consumeClick()) {
                 openSearchScreen(client);
             }
         });
     }
 
-    private static boolean openMainScreen(MinecraftClient client) {
+    private static boolean openMainScreen(Minecraft client) {
         if (!QuickJoinConfig.isEnabled()) {
-            sendClientMessage(client, Text.literal("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in the config."));
+            sendClientMessage(client, Component.literal("§4[§6§lQUICKJOIN§4]§a: The mod is disabled in the config."));
             return false;
         }
         if (!HypixelChecker.isOnHypixel(client)) {
-            sendClientMessage(client, Text.literal("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."));
+            sendClientMessage(client, Component.literal("§4[§6§lQUICKJOIN§4]§a: You are not on Hypixel."));
             return false;
         }
         client.setScreen(null);
@@ -174,7 +176,7 @@ public class QuickJoinFabric implements ClientModInitializer {
         return true;
     }
 
-    static void openFavoritesScreen(MinecraftClient client) {
+    static void openFavoritesScreen(Minecraft client) {
         if (!QuickJoinConfig.enableFavorites()) {
             return;
         }
@@ -182,7 +184,7 @@ public class QuickJoinFabric implements ClientModInitializer {
         scheduleScreen(FavoritesScreen::new);
     }
 
-    static void openSearchScreen(MinecraftClient client) {
+    static void openSearchScreen(Minecraft client) {
         client.setScreen(null);
         scheduleScreen(SearchScreen::new);
     }
@@ -196,7 +198,7 @@ public class QuickJoinFabric implements ClientModInitializer {
     }
 
     public static void openConfigScreen(Screen parent) {
-        MinecraftClient client = MinecraftClient.getInstance();
+        Minecraft client = Minecraft.getInstance();
         if (client == null) {
             return;
         }
@@ -215,9 +217,9 @@ public class QuickJoinFabric implements ClientModInitializer {
         refreshAlias();
     }
 
-    private static void sendClientMessage(MinecraftClient client, Text message) {
-        if (client.inGameHud != null && client.inGameHud.getChatHud() != null) {
-            client.inGameHud.getChatHud().addMessage(message);
+    private static void sendClientMessage(Minecraft client, Component message) {
+        if (client.gui != null && client.gui.getChat() != null) {
+            client.gui.getChat().addMessage(message);
         }
     }
 }

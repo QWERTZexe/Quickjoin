@@ -1,7 +1,7 @@
 import org.gradle.language.jvm.tasks.ProcessResources
 
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.8-SNAPSHOT'
     id 'java'
 }
 
@@ -31,8 +31,8 @@ repositories {
 }
 
 dependencies {
-    minecraft 'com.mojang:minecraft:1.21.8'
-    mappings "net.fabricmc:yarn:1.21.8+build.1:v2"
+    minecraft 'com.mojang:minecraft:1.21.10'
+    mappings loom.officialMojangMappings()
     modImplementation 'net.fabricmc:fabric-loader:0.15.11'
     modImplementation 'net.fabricmc.fabric-api:fabric-api:0.105.3+1.21.1'
     implementation project(':common')
@@ -58,7 +58,7 @@ tasks.named('jar', Jar) {
 }
 base {
     def archivesBase = project.findProperty('mod_archives_name') ?: project.name
-    archivesName = "${archivesBase}-1.21.8-fabric"
+    archivesName = "${archivesBase}-1.21.10-fabric"
 }
 tasks.named('processResources', ProcessResources) {
     inputs.property 'modVersion', project.version

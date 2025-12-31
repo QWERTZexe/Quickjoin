@@ -16,7 +16,7 @@ def modName = settings.ext.get('mod_name')
 rootProject.name = modName
 rootProject.buildFileName = 'root.gradle'
 
-include ':common', ':1.8.9-forge', ':1.21.8-fabric'
+include ':common', ':1.8.9-forge', ':1.21.10-fabric'
 project(':common').projectDir = file('common')
 project(':1.8.9-forge').projectDir = file('versions/1.8.9-forge')
-project(':1.21.8-fabric').projectDir = file('versions/1.21.8-fabric')
+project(':1.21.10-fabric').projectDir = file('versions/1.21.10-fabric')

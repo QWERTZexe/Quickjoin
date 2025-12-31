@@ -21,7 +21,7 @@
   "environment": "client",
   "depends": {
     "fabricloader": ">=0.15.11",
-    "minecraft": "1.21.8",
+    "minecraft": "1.21.10",
     "fabric-api": "*",
     "yet_another_config_lib_v3": "*"
   },

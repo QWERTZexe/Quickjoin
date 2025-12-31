@@ -8,13 +8,15 @@ import app.qwertz.quickjoin.fabric.config.QuickJoinConfig;
 import app.qwertz.quickjoin.fabric.util.LegacyText;
 import app.qwertz.quickjoin.favorites.FavoriteEntry;
 import app.qwertz.quickjoin.favorites.FavoritesManager;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.ClickEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,22 +27,22 @@ public class FavoritesScreen extends Screen {
 
     private static final int MAX_VISIBLE = 7;
 
-    private TextFieldWidget searchField;
+    private EditBox searchField;
     private int scrollOffset = 0;
 
-    private final List<ButtonWidget> entryButtons = new ArrayList<>();
-    private final Map<ButtonWidget, FavoriteEntry> entryMap = new HashMap<>();
+    private final List<Button> entryButtons = new ArrayList<>();
+    private final Map<Button, FavoriteEntry> entryMap = new HashMap<>();
 
-    private final MinecraftClient clientInstance = MinecraftClient.getInstance();
+    private final Minecraft clientInstance = Minecraft.getInstance();
 
     public FavoritesScreen() {
-        super(Text.literal("Favorites"));
+        super(Component.literal("Favorites"));
     }
 
     @Override
     protected void init() {
         super.init();
-        clearChildren();
+        clearWidgets();
         entryButtons.clear();
         entryMap.clear();
 
@@ -49,52 +51,52 @@ public class FavoritesScreen extends Screen {
         int topY = this.height / 2 - 90;
 
         if (searchField == null) {
-            searchField = new TextFieldWidget(textRenderer, startX, topY - 22, availableWidth, 18, Text.empty());
+            searchField = new EditBox(font, startX, topY - 22, availableWidth, 18, Component.empty());
             searchField.setMaxLength(64);
-            searchField.setChangedListener(s -> {
+            searchField.setResponder(s -> {
                 scrollOffset = 0;
                 rebuildEntries();
             });
         }
-        addDrawableChild(searchField);
+        addRenderableWidget(searchField);
 
         rebuildEntries();
 
-        addDrawableChild(ButtonWidget.builder(Text.literal("Back"), btn -> this.client.setScreen(new QuickJoinScreen("QuickJoinGui")))
-                .dimensions(startX, this.height / 2 + 90, 108, 20)
+        addRenderableWidget(Button.builder(Component.literal("Back"), btn -> Minecraft.getInstance().setScreen(new QuickJoinScreen("QuickJoinGui")))
+                .bounds(startX, this.height / 2 + 90, 108, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("Close"), btn -> this.client.setScreen(null))
-                .dimensions(startX + 112, this.height / 2 + 90, 108, 20)
+        addRenderableWidget(Button.builder(Component.literal("Close"), btn -> Minecraft.getInstance().setScreen(null))
+                .bounds(startX + 112, this.height / 2 + 90, 108, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("▲"), btn -> {
+        addRenderableWidget(Button.builder(Component.literal("▲"), btn -> {
                     if (scrollOffset > 0) {
                         scrollOffset--;
                         rebuildEntries();
                     }
                 })
-                .dimensions(startX, this.height / 2 + 66, 52, 20)
+                .bounds(startX, this.height / 2 + 66, 52, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("▼"), btn -> {
+        addRenderableWidget(Button.builder(Component.literal("▼"), btn -> {
                     int max = Math.max(0, filteredFavorites().size() - MAX_VISIBLE);
                     if (scrollOffset < max) {
                         scrollOffset++;
                         rebuildEntries();
                     }
                 })
-                .dimensions(startX + 56, this.height / 2 + 66, 52, 20)
+                .bounds(startX + 56, this.height / 2 + 66, 52, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("Clear Search"), btn -> {
-                    searchField.setText("");
+        addRenderableWidget(Button.builder(Component.literal("Clear Search"), btn -> {
+                    searchField.setValue("");
                     scrollOffset = 0;
                     rebuildEntries();
                 })
-                .dimensions(startX + 112, this.height / 2 + 66, 108, 20)
+                .bounds(startX + 112, this.height / 2 + 66, 108, 20)
                 .build());
     }
 
     private void rebuildEntries() {
-        for (ButtonWidget widget : entryButtons) {
-            remove(widget);
+        for (Button widget : entryButtons) {
+            removeWidget(widget);
         }
         entryButtons.clear();
         entryMap.clear();
@@ -108,19 +110,19 @@ public class FavoritesScreen extends Screen {
         int y = topY;
         for (int i = 0; i < visible; i++) {
             FavoriteEntry entry = favorites.get(scrollOffset + i);
-            MutableText label = LegacyText.parse(buildLabel(entry));
-            ButtonWidget widget = ButtonWidget.builder(label, btn -> onFavoriteClicked(entry))
-                    .dimensions(startX, y, availableWidth, 20)
+            MutableComponent label = LegacyText.parse(buildLabel(entry));
+            Button widget = Button.builder(label, btn -> onFavoriteClicked(entry))
+                    .bounds(startX, y, availableWidth, 20)
                     .build();
             entryButtons.add(widget);
             entryMap.put(widget, entry);
-            addDrawableChild(widget);
+            addRenderableWidget(widget);
             y += 22;
         }
     }
 
     private List<FavoriteEntry> filteredFavorites() {
-        String query = searchField != null ? searchField.getText() : "";
+        String query = searchField != null ? searchField.getValue() : "";
         if (query == null || query.isBlank()) {
             return new ArrayList<>(FavoritesManager.getFavorites());
         }
@@ -176,9 +178,12 @@ public class FavoritesScreen extends Screen {
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(MouseButtonEvent click, boolean doubled) {
+        int button = click.button();
+        double mouseX = click.x();
+        double mouseY = click.y();
         if (button == 1) {
-            for (ButtonWidget widget : entryButtons) {
+            for (Button widget : entryButtons) {
                 if (widget.isMouseOver(mouseX, mouseY)) {
                     FavoriteEntry entry = entryMap.get(widget);
                     if (entry != null) {
@@ -189,7 +194,7 @@ public class FavoritesScreen extends Screen {
                 }
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(click, doubled);
     }
 
     @Override
@@ -212,9 +217,9 @@ public class FavoritesScreen extends Screen {
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+    public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
         context.fill(0, 0, width, height, 0xB0000000);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal("§eFavorites"), width / 2, height / 2 - 110, 0xFFFFFF);
+        context.drawCenteredString(font, Component.literal("§eFavorites"), width / 2, height / 2 - 110, 0xFFFFFF);
         super.render(context, mouseX, mouseY, delta);
     }
 }

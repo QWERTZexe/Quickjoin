@@ -8,14 +8,15 @@ import app.qwertz.quickjoin.fabric.QuickJoinFabric;
 import app.qwertz.quickjoin.fabric.config.QuickJoinConfig;
 import app.qwertz.quickjoin.fabric.util.LegacyText;
 import app.qwertz.quickjoin.favorites.FavoritesManager;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gl.RenderPipelines;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.client.renderer.RenderPipelines;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,11 +31,11 @@ public class QuickJoinScreen extends Screen {
     private final String guiName;
     private final Config guiLayout;
 
-    private final List<ButtonWidget> entryButtons = new ArrayList<>();
-    private final Map<ButtonWidget, Integer> buttonIds = new HashMap<>();
+    private final List<Button> entryButtons = new ArrayList<>();
+    private final Map<Button, Integer> buttonIds = new HashMap<>();
 
     public QuickJoinScreen(String guiName) {
-        super(Text.literal("QuickJoin"));
+        super(Component.literal("QuickJoin"));
         this.guiName = guiName;
         this.guiLayout = QuickJoinConfig.getGuiLayout();
     }
@@ -42,7 +43,7 @@ public class QuickJoinScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        clearChildren();
+        clearWidgets();
         entryButtons.clear();
         buttonIds.clear();
 
@@ -61,11 +62,11 @@ public class QuickJoinScreen extends Screen {
                 boolean isFav = QuickJoinConfig.enableFavorites() && FavoritesManager.isFavorite(guiName, button.id);
                 String star = isFav ? "✮ " : "";
                 String label = star + button.colorCode + colorPrefix + boldPrefix + button.label;
-                MutableText text = LegacyText.parse(label);
-                ButtonWidget widget = ButtonWidget.builder(text, btn -> handleButtonPress(button.id))
-                        .dimensions(x, y, button.width, button.height)
+                MutableComponent text = LegacyText.parse(label);
+                Button widget = Button.builder(text, btn -> handleButtonPress(button.id))
+                        .bounds(x, y, button.width, button.height)
                         .build();
-                addDrawableChild(widget);
+                addRenderableWidget(widget);
                 entryButtons.add(widget);
                 buttonIds.put(widget, button.id);
             }
@@ -77,34 +78,34 @@ public class QuickJoinScreen extends Screen {
             int nextX = this.width - spacing;
 
             if (QuickJoinConfig.enableFavorites()) {
-                addDrawableChild(ButtonWidget.builder(Text.literal("§6§lFavorites"), btn -> this.client.setScreen(new FavoritesScreen()))
-                        .dimensions(nextX, topY, 80, 20)
+                addRenderableWidget(Button.builder(Component.literal("§6§lFavorites"), btn -> Minecraft.getInstance().setScreen(new FavoritesScreen()))
+                        .bounds(nextX, topY, 80, 20)
                         .build());
                 nextX -= spacing;
             }
 
-            addDrawableChild(ButtonWidget.builder(Text.literal("§a§lSearch"), btn -> this.client.setScreen(new SearchScreen()))
-                    .dimensions(nextX, topY, 80, 20)
+            addRenderableWidget(Button.builder(Component.literal("§a§lSearch"), btn -> Minecraft.getInstance().setScreen(new SearchScreen()))
+                    .bounds(nextX, topY, 80, 20)
                     .build());
             nextX -= spacing;
 
-            addDrawableChild(ButtonWidget.builder(Text.literal("§b§lConfig"), btn -> {
-                        if (this.client != null) {
-                            this.client.setScreen(QuickJoinConfig.createConfigScreen(this));
+            addRenderableWidget(Button.builder(Component.literal("§b§lConfig"), btn -> {
+                        if (Minecraft.getInstance() != null) {
+                            Minecraft.getInstance().setScreen(QuickJoinConfig.createConfigScreen(this));
                         }
                     })
-                    .dimensions(nextX, topY, 80, 20)
+                    .bounds(nextX, topY, 80, 20)
                     .build());
         }
     }
 
     private void handleButtonPress(int id) {
         if (id == 7000) {
-            client.setScreen(new FavoritesScreen());
+            Minecraft.getInstance().setScreen(new FavoritesScreen());
             return;
         }
         if (id == 7001) {
-            client.setScreen(new SearchScreen());
+            Minecraft.getInstance().setScreen(new SearchScreen());
             return;
         }
 
@@ -113,38 +114,41 @@ public class QuickJoinScreen extends Screen {
             return;
         }
         Func func = gui.funcs.get(String.valueOf(id));
-        QuickJoinActions.execute(client, guiName, func);
+        QuickJoinActions.execute(Minecraft.getInstance(), guiName, func);
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    public boolean mouseClicked(MouseButtonEvent click, boolean doubled) {
+        int button = click.button();
+        double mouseX = click.x();
+        double mouseY = click.y();
         if (button == 1 && QuickJoinConfig.enableFavorites()) {
-            for (ButtonWidget widget : entryButtons) {
+            for (Button widget : entryButtons) {
                 if (widget.isMouseOver(mouseX, mouseY)) {
                     Integer id = buttonIds.get(widget);
                     if (id == null || id >= 7000) {
-                        return super.mouseClicked(mouseX, mouseY, button);
+                        return super.mouseClicked(click, doubled);
                     }
                     GuiData gui = guiLayout != null ? guiLayout.guis.get(guiName) : null;
-                    if (gui == null || gui.funcs == null) return super.mouseClicked(mouseX, mouseY, button);
+                    if (gui == null || gui.funcs == null) return super.mouseClicked(click, doubled);
                     Func func = gui.funcs.get(String.valueOf(id));
                     if (func == null || "opengui".equals(func.type)) {
-                        return super.mouseClicked(mouseX, mouseY, button);
+                        return super.mouseClicked(click, doubled);
                     }
                     boolean added = FavoritesManager.toggleFavorite(guiName, id);
-                    if (QuickJoinConfig.debugMode() && client.player != null) {
-                        client.player.sendMessage(Text.literal("Favorites " + (added ? "added" : "removed") + ": " + guiName + "#" + id), false);
+                    if (QuickJoinConfig.debugMode() && Minecraft.getInstance().player != null) {
+                        Minecraft.getInstance().player.displayClientMessage(Component.literal("Favorites " + (added ? "added" : "removed") + ": " + guiName + "#" + id), false);
                     }
                     init();
                     return true;
                 }
             }
         }
-        return super.mouseClicked(mouseX, mouseY, button);
+        return super.mouseClicked(click, doubled);
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+    public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
         context.fill(0, 0, width, height, 0x80000000);
         super.render(context, mouseX, mouseY, delta);
 
@@ -154,15 +158,15 @@ public class QuickJoinScreen extends Screen {
         }
         int iconY = this.height / 2 - 125;
         
-        Identifier icon = Identifier.of(QuickJoinFabric.MOD_ID, "Icon" + gui.icon.sheet + ".png");
+        ResourceLocation icon = ResourceLocation.fromNamespaceAndPath(QuickJoinFabric.MOD_ID, "icon" + gui.icon.sheet + ".png");
         int iconX = this.width / 2 - ICON_SIZE / 2;
-        context.drawTexture(RenderPipelines.GUI_TEXTURED, icon, iconX, iconY,
+        context.blit(RenderPipelines.GUI_TEXTURED, icon, iconX, iconY,
                 (float) gui.icon.textureX, (float) gui.icon.textureY,
                 ICON_SIZE, ICON_SIZE,
                 ICON_SHEET_SIZE, ICON_SHEET_SIZE);
 
         int titleY = iconY + ICON_SIZE + 4;
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal(gui.name), this.width / 2, titleY, 0xFFFFFFFF);
+        context.drawCenteredString(font, Component.literal(gui.name), this.width / 2, titleY, 0xFFFFFFFF);
             }
 
     private int evaluateExpression(String expression, int width, int height) {

@@ -6,13 +6,13 @@ import app.qwertz.quickjoin.data.Func;
 import app.qwertz.quickjoin.data.GuiData;
 import app.qwertz.quickjoin.fabric.config.QuickJoinConfig;
 import app.qwertz.quickjoin.fabric.util.LegacyText;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
-import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,22 +28,22 @@ public class SearchScreen extends Screen {
     private final List<SearchEntry> entries = new ArrayList<>();
     private List<SearchEntry> filtered = new ArrayList<>();
 
-    private TextFieldWidget searchField;
+    private EditBox searchField;
     private int scrollOffset = 0;
 
-    private final List<ButtonWidget> entryButtons = new ArrayList<>();
-    private final Map<ButtonWidget, SearchEntry> entryMap = new HashMap<>();
+    private final List<Button> entryButtons = new ArrayList<>();
+    private final Map<Button, SearchEntry> entryMap = new HashMap<>();
 
-    private final MinecraftClient clientInstance = MinecraftClient.getInstance();
+    private final Minecraft clientInstance = Minecraft.getInstance();
 
     public SearchScreen() {
-        super(Text.literal("Search"));
+        super(Component.literal("Search"));
     }
 
     @Override
     protected void init() {
         super.init();
-        clearChildren();
+        clearWidgets();
         entryButtons.clear();
         entryMap.clear();
 
@@ -56,47 +56,47 @@ public class SearchScreen extends Screen {
         int topY = this.height / 2 - 90;
 
         if (searchField == null) {
-            searchField = new TextFieldWidget(textRenderer, startX, topY - 22, availableWidth, 18, Text.empty());
-            searchField.setFocusUnlocked(true);
-            searchField.setChangedListener(s -> {
+            searchField = new EditBox(font, startX, topY - 22, availableWidth, 18, Component.empty());
+            searchField.setCanLoseFocus(true);
+            searchField.setResponder(s -> {
                 scrollOffset = 0;
                 rebuildEntries();
             });
         }
         searchField.setFocused(true);
-        addDrawableChild(searchField);
+        addRenderableWidget(searchField);
 
         rebuildEntries();
 
-        addDrawableChild(ButtonWidget.builder(Text.literal("Back"), btn -> this.client.setScreen(new QuickJoinScreen("QuickJoinGui")))
-                .dimensions(startX, this.height / 2 + 90, 128, 20)
+        addRenderableWidget(Button.builder(Component.literal("Back"), btn -> Minecraft.getInstance().setScreen(new QuickJoinScreen("QuickJoinGui")))
+                .bounds(startX, this.height / 2 + 90, 128, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("Close"), btn -> this.client.setScreen(null))
-                .dimensions(startX + 132, this.height / 2 + 90, 128, 20)
+        addRenderableWidget(Button.builder(Component.literal("Close"), btn -> Minecraft.getInstance().setScreen(null))
+                .bounds(startX + 132, this.height / 2 + 90, 128, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("▲"), btn -> {
+        addRenderableWidget(Button.builder(Component.literal("▲"), btn -> {
                     if (scrollOffset > 0) {
                         scrollOffset--;
                         rebuildEntries();
                     }
                 })
-                .dimensions(startX, this.height / 2 + 66, 62, 20)
+                .bounds(startX, this.height / 2 + 66, 62, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("▼"), btn -> {
+        addRenderableWidget(Button.builder(Component.literal("▼"), btn -> {
                     int max = Math.max(0, filtered.size() - MAX_VISIBLE);
                     if (scrollOffset < max) {
                         scrollOffset++;
                         rebuildEntries();
                     }
                 })
-                .dimensions(startX + 66, this.height / 2 + 66, 62, 20)
+                .bounds(startX + 66, this.height / 2 + 66, 62, 20)
                 .build());
-        addDrawableChild(ButtonWidget.builder(Text.literal("Clear Search"), btn -> {
-                    searchField.setText("");
+        addRenderableWidget(Button.builder(Component.literal("Clear Search"), btn -> {
+                    searchField.setValue("");
                     scrollOffset = 0;
                     rebuildEntries();
                 })
-                .dimensions(startX + 132, this.height / 2 + 66, 128, 20)
+                .bounds(startX + 132, this.height / 2 + 66, 128, 20)
                 .build());
     }
 
@@ -137,8 +137,8 @@ public class SearchScreen extends Screen {
     private void rebuildEntries() {
         filtered = filterEntries();
 
-        for (ButtonWidget widget : entryButtons) {
-            remove(widget);
+        for (Button widget : entryButtons) {
+            removeWidget(widget);
         }
         entryButtons.clear();
         entryMap.clear();
@@ -151,19 +151,19 @@ public class SearchScreen extends Screen {
         int y = topY;
         for (int i = 0; i < visible; i++) {
             SearchEntry entry = filtered.get(scrollOffset + i);
-            MutableText label = LegacyText.parse(entry.formattedLabel());
-            ButtonWidget widget = ButtonWidget.builder(label, btn -> onEntryClicked(entry))
-                    .dimensions(startX, y, availableWidth, 20)
+            MutableComponent label = LegacyText.parse(entry.formattedLabel());
+            Button widget = Button.builder(label, btn -> onEntryClicked(entry))
+                    .bounds(startX, y, availableWidth, 20)
                     .build();
             entryButtons.add(widget);
             entryMap.put(widget, entry);
-            addDrawableChild(widget);
+            addRenderableWidget(widget);
             y += 22;
         }
     }
 
     private List<SearchEntry> filterEntries() {
-        String query = searchField != null ? searchField.getText() : "";
+        String query = searchField != null ? searchField.getValue() : "";
         if (query == null || query.isBlank()) {
             return new ArrayList<>(entries);
         }
@@ -249,9 +249,9 @@ public class SearchScreen extends Screen {
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+    public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
         context.fill(0, 0, width, height, 0xB0000000);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal("§aSearch"), width / 2, height / 2 - 110, 0xFFFFFF);
+        context.drawCenteredString(font, Component.literal("§aSearch"), width / 2, height / 2 - 110, 0xFFFFFF);
         super.render(context, mouseX, mouseY, delta);
     }
 

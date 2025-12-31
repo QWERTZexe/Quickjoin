@@ -1,18 +1,18 @@
 package app.qwertz.quickjoin.fabric.util;
 
-import net.minecraft.text.MutableText;
-import net.minecraft.text.Style;
-import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.util.Formatting;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextColor;
+import net.minecraft.ChatFormatting;
 
 public final class LegacyText {
 
     private LegacyText() {
     }
 
-    public static MutableText parse(String input) {
-        MutableText result = Text.empty();
+    public static MutableComponent parse(String input) {
+        MutableComponent result = Component.empty();
         if (input == null || input.isEmpty()) {
             return result;
         }
@@ -24,7 +24,7 @@ public final class LegacyText {
             if (c == '§' && i + 1 < input.length()) {
                 // flush existing text with current style
                 if (current.length() > 0) {
-                    result.append(Text.literal(current.toString()).setStyle(style));
+                    result.append(Component.literal(current.toString()).setStyle(style));
                     current.setLength(0);
                 }
                 char code = Character.toLowerCase(input.charAt(++i));
@@ -32,10 +32,10 @@ public final class LegacyText {
                     style = Style.EMPTY;
                     continue;
                 }
-                Formatting formatting = Formatting.byCode(code);
+                ChatFormatting formatting = ChatFormatting.getByCode(code);
                 if (formatting != null) {
                     if (formatting.isColor()) {
-                        Integer colorValue = formatting.getColorValue();
+                        Integer colorValue = formatting.getColor();
                         style = Style.EMPTY;
                         if (colorValue != null) {
                             style = style.withColor(TextColor.fromRgb(colorValue));
@@ -49,19 +49,19 @@ public final class LegacyText {
             }
         }
         if (current.length() > 0) {
-            result.append(Text.literal(current.toString()).setStyle(style));
+            result.append(Component.literal(current.toString()).setStyle(style));
         }
         return result;
     }
 
-    private static Style applyFormat(Style style, Formatting formatting) {
+    private static Style applyFormat(Style style, ChatFormatting formatting) {
         switch (formatting) {
             case BOLD:
                 return style.withBold(true);
             case ITALIC:
                 return style.withItalic(true);
             case UNDERLINE:
-                return style.withUnderline(true);
+                return style.withUnderlined(true);
             case STRIKETHROUGH:
                 return style.withStrikethrough(true);
             case OBFUSCATED:
