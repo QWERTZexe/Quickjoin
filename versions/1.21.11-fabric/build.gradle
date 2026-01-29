@@ -1,0 +1,68 @@
+import org.gradle.language.jvm.tasks.ProcessResources
+
+plugins {
+    id 'fabric-loom' version '1.8-SNAPSHOT'
+    id 'java'
+}
+
+evaluationDependsOn(':common')
+
+group = 'app.qwertz'
+version = project.findProperty('mod_version') ?: '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+    maven {
+        name 'Xander Maven'
+        url 'https://maven.isxander.dev/releases'
+    }
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.11'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.15.11'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.105.3+1.21.1'
+    implementation project(':common')
+    modImplementation("com.terraformersmc:modmenu:15.0.0")
+    modImplementation "dev.isxander:yet-another-config-lib:3.7.1+1.21.6-fabric"
+}
+
+loom {
+    runs {
+        client {
+            client()
+            setConfigName 'Fabric Client'
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+tasks.named('jar', Jar) {
+    from project(':common').sourceSets.main.output
+}
+base {
+    def archivesBase = project.findProperty('mod_archives_name') ?: project.name
+    archivesName = "${archivesBase}-1.21.11-fabric"
+}
+tasks.named('processResources', ProcessResources) {
+    inputs.property 'modVersion', project.version
+    filesMatching('fabric.mod.json') {
+        expand(version: project.version)
+    }
+}

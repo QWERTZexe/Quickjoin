@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "quickjoin",
+  "version": "${version}",
+  "name": "Quickjoin",
+  "description": "Quickly join any game on hypixel!",
+  "icon": "assets/quickjoin/logo.png",
+  "entrypoints": {
+    "client": [
+      "app.qwertz.quickjoin.fabric.QuickJoinFabric"
+    ],
+    "modmenu": [
+      "app.qwertz.quickjoin.fabric.modmenu.ModMenuApiImpl"
+    ]
+  },
+  "contact": {
+    "homepage": "https://modrinth.com/mod/quickjoin",
+    "issues": "https://github.com/QWERTZexe/Quickjoin/issues",
+    "sources": "https://github.com/QWERTZexe/Quickjoin"
+  },
+  "environment": "client",
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.21.11",
+    "fabric-api": "*",
+    "yet_another_config_lib_v3": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/Vp6Q4FHCzf",
+        "modmenu.website": "https://qwertz.app",
+        "modmenu.modrinth": "https://modrinth.com/mod/quickjoin",
+        "modmenu.donate": "https://qwertz.app/donate"
+      },
+      "badges": [ ],
+      "update_checker": true
+    },
+    "suggests": {
+      "modmenu": "*"
+    }
+  }
+}
+
+
