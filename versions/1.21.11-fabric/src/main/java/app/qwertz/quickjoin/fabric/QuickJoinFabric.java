@@ -123,13 +123,11 @@ public class QuickJoinFabric implements ClientModInitializer {
     private static int executeOpenQuickJoin(FabricClientCommandSource source) {
         Minecraft client = source.getClient();
         if (client == null) {
-            source.sendFeedback(Component.literal("QuickJoin: client unavailable."));
+            source.sendFeedback(Component.literal("§4[§6§lQUICKJOIN§4]§a: Client unavailable."));
             return Command.SINGLE_SUCCESS;
         }
         client.execute(() -> {
-            if (!openMainScreen(client)) {
-                source.sendFeedback(Component.literal("QuickJoin: command cancelled."));
-            }
+            openMainScreen(client);
         });
         return Command.SINGLE_SUCCESS;
     }
