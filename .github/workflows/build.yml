@@ -23,12 +23,6 @@ jobs:
         with:
           fetch-depth: 10
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v2
-        with:
-          java-version: 21
-          distribution: temurin
-
       - uses: actions/cache@v4
         with:
           path: |
@@ -41,7 +35,25 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Chmod Gradle
-        run: chmod +x ./gradlew
+        run: chmod +x ./gradlew versions/26.1-fabric/gradlew
 
-      - name: Build
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Build (Forge + common)
+        run: ./gradlew build --no-daemon
+
+      - name: Set up JDK 25 (26.1 Fabric)
+        uses: actions/setup-java@v4
+        with:
+          java-version: 25
+          distribution: temurin
+
+      # Toolchain is fixed; sources still need a 26.1 API port (GuiGraphics, chat, commands, etc.).
+      - name: Build (26.1 Fabric)
+        continue-on-error: true
+        working-directory: versions/26.1-fabric
         run: ./gradlew build --no-daemon

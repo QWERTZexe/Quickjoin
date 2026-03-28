@@ -1,3 +1,5 @@
+import java.util.Locale
+
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.9.10' apply false
     id 'org.polyfrost.multi-version.root'
@@ -6,4 +8,40 @@ plugins {
 
 preprocess {
     createNode('1.8.9-forge', 10809, 'srg')
+}
+
+// 26.1 Fabric uses its own Gradle 9 wrapper under versions/26.1-fabric (see settings.gradle comment).
+tasks.register('build26_1Fabric', Exec) {
+    group = 'build'
+    description = 'Runs versions/26.1-fabric/gradlew build (Gradle 9 + no-remap Loom).'
+    workingDir = file('versions/26.1-fabric')
+    def win = System.getProperty('os.name').toLowerCase(Locale.US).contains('windows')
+    if (win) {
+        commandLine 'cmd', '/c', 'gradlew.bat', 'build', '--no-daemon'
+    } else {
+        commandLine './gradlew', 'build', '--no-daemon'
+    }
+}
+
+// `gradlew build` runs subproject `:build` tasks; this root project has no `:build`, so hook those instead.
+gradle.projectsEvaluated {
+    if (rootProject.findProperty('skip261Fabric') == 'true') {
+        return
+    }
+    def fabric261 = rootProject.tasks.named('build26_1Fabric')
+    rootProject.subprojects.each { sp ->
+        sp.tasks.matching { it.name == 'build' }.configureEach { t ->
+            t.dependsOn(fabric261)
+        }
+    }
+    def rootBuild = rootProject.tasks.findByName('build')
+    if (rootBuild != null) {
+        rootBuild.dependsOn(fabric261)
+    }
+}
+
+tasks.whenTaskAdded { t ->
+    if (t.project == rootProject && t.name == 'build' && findProperty('skip261Fabric') != 'true') {
+        t.dependsOn(tasks.named('build26_1Fabric'))
+    }
 }

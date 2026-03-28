@@ -1,0 +1,14 @@
+// Standalone settings: avoids Polyfrost root + Gradle 9 plugin classpath issues with
+// net.fabricmc.fabric-loom (LoomNoRemapGradlePlugin / LoomGradlePlugin validation).
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url 'https://maven.fabricmc.net/' }
+    }
+}
+
+rootProject.name = 'QuickJoin-26.1-Fabric'
+
+include ':common'
+project(':common').projectDir = file('../../common')
