@@ -33,5 +33,6 @@ rootProject.buildFileName = 'root.gradle'
 include ':common', ':1.8.9-forge'
 project(':common').projectDir = file('common')
 project(':1.8.9-forge').projectDir = file('versions/1.8.9-forge')
-// 26.1 Fabric: separate Gradle build + Gradle 9.4 wrapper (Polyfrost root + no-remap Loom clash on Gradle 9).
-//   cd versions/26.1-fabric && ./gradlew build
+// 26.2 Fabric: separate Gradle build + Gradle 9.5 wrapper (Polyfrost root + no-remap Loom clash on Gradle 9).
+//   cd versions/26.2-fabric && ./gradlew build
+// versions/26.1-fabric is archived (like 1.21.10/1.21.11) and not wired into this build.

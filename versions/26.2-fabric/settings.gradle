@@ -1,6 +1,3 @@
-// ARCHIVED: superseded by versions/26.2-fabric. Kept for reference (like 1.21.11-fabric).
-// Not wired into the root Gradle build. Standalone: ./gradlew build (JDK 25).
-//
 // Standalone settings: avoids Polyfrost root + Gradle 9 plugin classpath issues with
 // net.fabricmc.fabric-loom (LoomNoRemapGradlePlugin / LoomGradlePlugin validation).
 pluginManagement {
@@ -11,7 +8,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'QuickJoin-26.1-Fabric'
+rootProject.name = 'QuickJoin-26.2-Fabric'
 
 include ':common'
 project(':common').projectDir = file('../../common')
